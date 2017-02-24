@@ -7,6 +7,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+                    <a href="{{ path('homepage') }}">Start</a> |
+                    <a href="{{ path('_about_me') }}">About</a>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
