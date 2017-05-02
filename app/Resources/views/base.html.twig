@@ -3,14 +3,43 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <link href="{{ asset('bundles/home/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all" />
+
+        {% block stylesheets %}{% endblock %}
+
+
     </head>
     <body>
-                    <a href="{{ path('homepage') }}">Start</a> |
-                    <a href="{{ path('_about_me') }}">About</a>
+        <a href="{{ path('homepage') }}">Start</a> |
+        <a href="{{ path('_about_me') }}">About</a>
 
         {% block body %}{% endblock %}
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ asset('bundles/home/js/jquery.min.js') }}"></script>
+        {#
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ asset('bundles/home/js/jquery.min.js') }}"><\/script>')</script>
+        #}
+
+        <script src="{{ asset('bundles/home/js/docs/vendor/tether.min.js') }}"></script>
+        {#
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="{{ asset('bundles/home/js/docs/vendor/tether.min.js') }}"><\/script>')</script>
+        #}
+
+        <script src="{{ asset('bundles/home/js/bootstrap.min.js') }}"></script>
+        <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+        <script src="{{ asset('bundles/home/js/docs/vendor/holder.min.js') }}"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="{{ asset('bundles/home/js/docs/ie10-viewport-bug-workaround.js') }}"></script>
+
         {% block javascripts %}{% endblock %}
+        
     </body>
 </html>
