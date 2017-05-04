@@ -9,6 +9,7 @@
         {% block stylesheets %}
             {% stylesheets filter="scssphp" output="css/app.css"
                 "%kernel.root_dir%/Resources/assets/scss/bootstrap/bootstrap.scss"
+                "%kernel.root_dir%/Resources/assets/scss/font-awesome/font-awesome.scss"
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
@@ -18,7 +19,7 @@
 
     </head>
     <body>
-        <a href="{{ path('homepage') }}">Start</a> |
+        <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Start</a> |
         <a href="{{ path('_about_me') }}">About</a>
 
         {% block body %}{% endblock %}
