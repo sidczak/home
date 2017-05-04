@@ -6,10 +6,15 @@
         
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-        <link href="{{ asset('bundles/home/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all" />
-
-        {% block stylesheets %}{% endblock %}
-
+        {% block stylesheets %}
+            {% stylesheets filter="scssphp" output="css/app.css"
+                "%kernel.root_dir%/Resources/assets/scss/bootstrap/bootstrap.scss"
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     </head>
     <body>
@@ -18,28 +23,19 @@
 
         {% block body %}{% endblock %}
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ asset('bundles/home/js/jquery.min.js') }}"></script>
-        {#
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ asset('bundles/home/js/jquery.min.js') }}"><\/script>')</script>
-        #}
-
-        <script src="{{ asset('bundles/home/js/docs/vendor/tether.min.js') }}"></script>
-        {#
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="{{ asset('bundles/home/js/docs/vendor/tether.min.js') }}"><\/script>')</script>
-        #}
-
-        <script src="{{ asset('bundles/home/js/bootstrap.min.js') }}"></script>
-        <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-        <script src="{{ asset('bundles/home/js/docs/vendor/holder.min.js') }}"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="{{ asset('bundles/home/js/docs/ie10-viewport-bug-workaround.js') }}"></script>
-
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {% javascripts filter="?jsqueeze" output="js/app.js"
+                "%kernel.root_dir%/Resources/assets/js/jquery.min.js"
+                "%kernel.root_dir%/Resources/assets/js/docs/vendor/tether.min.js"
+                "%kernel.root_dir%/Resources/assets/js/bootstrap.min.js"
+                "%kernel.root_dir%/Resources/assets/js/docs/vendor/holder.min.js"
+                "%kernel.root_dir%/Resources/assets/js/docs/ie10-viewport-bug-workaround.js"
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+        
+        <script src="{{ asset('js/app.js') }}"></script>
         
     </body>
 </html>
