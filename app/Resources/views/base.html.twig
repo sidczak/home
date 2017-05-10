@@ -21,8 +21,10 @@
     <body>
         <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Start</a> |
         <a href="{{ path('_about_me') }}">About</a>
-
+        
         {% block body %}{% endblock %}
+        
+        {*{{ show_source_code(_self) }}*}
 
         {% block javascripts %}
             {% javascripts filter="?jsqueeze" output="js/app.js"
@@ -37,6 +39,6 @@
         {% endblock %}
         
         <script src="{{ asset('js/app.js') }}"></script>
-        
+                
     </body>
 </html>
