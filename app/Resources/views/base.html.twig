@@ -23,8 +23,6 @@
         <a href="{{ path('_about_me') }}">About</a>
         
         {% block body %}{% endblock %}
-        
-        {#{{ show_source_code(_self) }}#}
 
         {% block javascripts %}
             {% javascripts filter="?jsqueeze" output="js/app.js"
