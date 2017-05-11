@@ -1,5 +1,3 @@
-<?php
-
 /*
  * This file is part of the Symfony package.
  *
@@ -9,13 +7,8 @@
  * file that was distributed with this source code.
  */
 
-namespace CodeExplorerBundle;
-
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-/**
- * @author Oleg Voronkovich <oleg-voronkovich@yandex.ru>
- */
-class CodeExplorerBundle extends Bundle
-{
-}
+(function ($) {
+    $(document).ready(function () {
+        hljs.initHighlightingOnLoad();
+    });
+})(window.jQuery);

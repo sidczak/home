@@ -49,7 +49,7 @@ class SourceCodeExtension extends \Twig_Extension
     {
         return $twig->render('@CodeExplorer/source_code.html.twig', [
             'controller' => $this->getController(),
-            'template'   => $this->getTemplateSource($twig->resolveTemplate($template)),
+            'template' => $this->getTemplateSource($twig->resolveTemplate($template)),
         ]);
     }
 
@@ -69,7 +69,7 @@ class SourceCodeExtension extends \Twig_Extension
         return [
             'file_path' => $method->getFileName(),
             'starting_line' => $method->getStartLine(),
-            'source_code' => $this->unindentCode($controllerCode)
+            'source_code' => $this->unindentCode($controllerCode),
         ];
     }
 
@@ -99,23 +99,16 @@ class SourceCodeExtension extends \Twig_Extension
 
     private function getTemplateSource(\Twig_Template $template)
     {
-        // Twig templates are not always stored in files, and so there is no
-        // API to get the filename from a template name in a generic way.
-        // The logic used here works only for templates stored in app/Resources/views
-        // and referenced via the "filename.html.twig" notation, not via the "::filename.html.twig"
-        // one or stored in bundles. This is enough for the needs of the demo app.
-        $filePath = $this->kernelRootDir.'/Resources/views/'.$template->getTemplateName();
-        $sourceCode = $template->getSource();
-
-        // Temporary workaround for https://github.com/twigphp/Twig/issues/2011
-        if (null === $sourceCode) {
-            $sourceCode = @file_get_contents($filePath);
-        }
+        $templateSource = $template->getSourceContext();
 
         return [
-            'file_path' => $filePath,
+            // Twig templates are not always stored in files (they can be stored
+            // in a database for example). However, for the needs of the Symfony
+            // Demo app, we consider that all templates are stored in files and
+            // that their file paths can be obtained through the source context.
+            'file_path' => $templateSource->getPath(),
             'starting_line' => 1,
-            'source_code' => $sourceCode,
+            'source_code' => $templateSource->getCode(),
         ];
     }
 
@@ -123,7 +116,7 @@ class SourceCodeExtension extends \Twig_Extension
      * Utility method that "unindents" the given $code when all its lines start
      * with a tabulation of four white spaces.
      *
-     * @param  string $code
+     * @param string $code
      *
      * @return string
      */
@@ -133,11 +126,13 @@ class SourceCodeExtension extends \Twig_Extension
         $codeLines = explode("\n", $code);
 
         $indentedLines = array_filter($codeLines, function ($lineOfCode) {
-            return '' === $lineOfCode || '    ' === substr($lineOfCode, 0, 4);
+            return '' === $lineOfCode || '    ' === mb_substr($lineOfCode, 0, 4);
         });
 
         if (count($indentedLines) === count($codeLines)) {
-            $formattedCode = array_map(function ($lineOfCode) { return substr($lineOfCode, 4); }, $codeLines);
+            $formattedCode = array_map(function ($lineOfCode) {
+                return mb_substr($lineOfCode, 4);
+            }, $codeLines);
             $formattedCode = implode("\n", $formattedCode);
         }
 
