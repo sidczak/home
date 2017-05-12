@@ -20,10 +20,13 @@
 
     </head>
     <body>
-        <a href="{{ path('homepage') }}"><i class="fa fa-home"></i> Start</a> |
-        <a href="{{ path('_about_me') }}">About</a>
+        {% block navigation %}
+            {{ include('_navbar.html.twig') }}
+        {% endblock %}
         
         {% block body %}{% endblock %}
+        
+        {% block footer %}{% endblock %}
 
         {% block javascripts %}
             {% javascripts filter="?jsqueeze" output="js/app.js"
@@ -32,13 +35,14 @@
                 "%kernel.root_dir%/Resources/assets/js/bootstrap.min.js"
                 "%kernel.root_dir%/Resources/assets/js/docs/vendor/holder.min.js"
                 "%kernel.root_dir%/Resources/assets/js/docs/ie10-viewport-bug-workaround.js"
-                "%kernel.root_dir%/Resources/assets/js/highlight/*"
+                "%kernel.root_dir%/Resources/assets/js/highlight/highlight.min.js"
+                "%kernel.root_dir%/Resources/assets/js/main.js"
             %}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
         
         <script src="{{ asset('js/app.js') }}"></script>
-                
+        
     </body>
 </html>
