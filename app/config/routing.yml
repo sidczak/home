@@ -7,14 +7,14 @@ app:
     type:     annotation
     prefix:   /{_locale}
     requirements:
-        _locale: en|pl
+        _locale: en|pl|ru
     defaults:
         _locale: '%locale%'
         
 homepage:
     path: /{_locale}
     requirements:
-        _locale: en|pl
+        _locale: en|pl|ru
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    default/homepage.html.twig
