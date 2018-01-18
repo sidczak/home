@@ -1,3 +1,7 @@
+bootstrap:
+    resource: "@BootstrapBundle/Resources/config/routing.yml"
+    prefix:   /bootstrap
+
 blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
     prefix:   /blog

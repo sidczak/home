@@ -1,0 +1,12 @@
+bootstrap_homepage:
+    path:     /
+    defaults: { _controller: BootstrapBundle:Default:index }
+    
+#bootstrap_components_modal:
+#    path:     /components/modal
+#    defaults: { _controller: BootstrapBundle:Components:modal }
+
+#bootstrap_components:
+#    resource: "@BootstrapBundle/Controller/ComponentsController.php"
+#    type:     annotation
+#    prefix:   /components
