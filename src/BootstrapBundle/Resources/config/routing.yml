@@ -1,22 +1,14 @@
 bootstrap_homepage:
     path:     /
-    defaults: { _controller: BootstrapBundle:Default:index }
+    defaults: { _controller: BootstrapBundle:Start:index }
     
-bootstrap_content_typography:
-    path:     /content/typography
-    defaults: { _controller: BootstrapBundle:Content:typography }
+#bootstrap_content_typography:
+#    path:     /content/typography
+#    defaults: { _controller: BootstrapBundle:Content:typography }
     
-bootstrap_content_lists:
-    path:     /content/lists
-    defaults: { _controller: BootstrapBundle:Content:lists }
-    
-bootstrap_content_fonts:
-    path:     /content/fonts
-    defaults: { _controller: BootstrapBundle:Content:fonts }
-    
-#bootstrap_content:
-#    resource: "@BootstrapBundle/Resources/config/routing/content.yml"
-#    prefix:   /content
+bootstrap_content:
+    resource: "@BootstrapBundle/Resources/config/routing/content.yml"
+    prefix:   /content
     
 bootstrap_components:
     resource: "@BootstrapBundle/Controller/ComponentsController.php"
