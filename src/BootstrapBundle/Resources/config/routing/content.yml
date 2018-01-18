@@ -1,0 +1,11 @@
+content_typography:
+    path:     /typography
+    defaults: { _controller: BootstrapBundle:Content:typography }
+    
+content_lists:
+    path:     /lists
+    defaults: { _controller: BootstrapBundle:Content:lists }
+    
+content_fonts:
+    path:     /fonts
+    defaults: { _controller: BootstrapBundle:Content:fonts }
