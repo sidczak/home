@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ComponentsController extends Controller
 {
     /**
-     * @Route("/modal", name="_modal")
+     * @Route("/components/modal", name="_components_modal")
      */
     public function modalAction(Request $request)
     {

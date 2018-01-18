@@ -17,5 +17,5 @@ homepage:
         _locale: en|pl|ru
     defaults:
         _controller: FrameworkBundle:Template:template
-        template:    default/homepage.html.twig
+        template:    start/index.html.twig
         _locale:     '%locale%'
