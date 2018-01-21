@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new CodeExplorerBundle\CodeExplorerBundle(),
             new BlogBundle\BlogBundle(),
             new BootstrapBundle\BootstrapBundle(),
+            new TutorialBundle\TutorialBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

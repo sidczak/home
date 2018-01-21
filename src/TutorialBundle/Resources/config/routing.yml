@@ -1,0 +1,12 @@
+tutorial_homepage:
+    path:     /
+    defaults: { _controller: TutorialBundle:Start:index }
+    
+tutorial_blog:
+    resource: "@TutorialBundle/Controller/BlogController.php"
+    type:     annotation
+    prefix:   /blog
+    
+tutorial_shop:
+    resource: "@TutorialBundle/Resources/config/routing/tutorial_shop.yml"
+    prefix:   /shop

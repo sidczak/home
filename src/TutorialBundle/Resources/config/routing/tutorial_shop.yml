@@ -1,0 +1,7 @@
+tutorial_shop_homepage:
+    path:     /
+    defaults: { _controller: "TutorialBundle:Shop:index"}
+    
+#tutorial_shop_step1:
+#    path:     /step1
+#    defaults: { _controller: "TutorialBundle:Shop:step1"}

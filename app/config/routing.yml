@@ -1,3 +1,7 @@
+tutorial:
+    resource: "@TutorialBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/tutorial
+
 bootstrap:
     resource: "@BootstrapBundle/Resources/config/routing.yml"
     prefix:   /bootstrap
