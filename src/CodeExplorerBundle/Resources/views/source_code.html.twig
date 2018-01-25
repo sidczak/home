@@ -18,14 +18,14 @@
 
                 <div class="modal-body">
                     {% if controller %}
-                        <h3>Controller code<small class="pull-right">{{ controller.file_path|format_file(controller.starting_line) }}</small></h3>
+                        <h3>Controller code<br/><small>{{ controller.file_path|format_file(controller.starting_line) }}</small></h3>
                         <pre><code class="php">{{ controller.source_code }}</code></pre>
                     {% else %}
                         <h3>Controller code</h3>
                         <pre><code>Not available</code></pre>
                     {% endif %}
 
-                    <h3>Twig template code<small class="pull-right">{{ template.file_path|format_file(template.starting_line) }}</small></h3>
+                    <h3>Twig template code<br/><small>{{ template.file_path|format_file(template.starting_line) }}</small></h3>
                     <pre><code class="twig">{{ template.source_code }}</code></pre>
                 </div>
             </div>
