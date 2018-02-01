@@ -2,7 +2,7 @@
 {% block title %}Start{% endblock %}
 
 {% block body %}
-    {#{{ show_source_code(_self) }}#}
+    {{ show_source_code(_self) }}
         
     <div class="container">
         <div class="row">
@@ -11,9 +11,6 @@
                     <h2>Start</h2>
                 </div>
                 <p>{{ 'title.homepage'|trans|raw }}</p>
-
-
-
             </div>
         </div>
         <div class="row">
@@ -22,6 +19,7 @@
                 <ul class="list-unstyled">
                     <li>Layout - Grid System</li>
                     <li><a href="{{ path('content_typography') }}">Content - Typography</a></li>
+                    <li><a href="{{ path('content_code') }}">Content - Code</a></li>
                     <li><a href="{{ path('content_lists') }}">Content - Lists</a></li>
                     <li><a href="{{ path('content_fonts') }}">Content - Fonts</a></li>
                     <li><a href="{{ path('components_modal') }}">Components - Modal</a></li>

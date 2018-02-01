@@ -2,6 +2,10 @@ content_typography:
     path:     /typography
     defaults: { _controller: BootstrapBundle:Content:typography }
     
+content_code:
+    path:     /code
+    defaults: { _controller: BootstrapBundle:Content:code }
+
 content_lists:
     path:     /lists
     defaults: { _controller: BootstrapBundle:Content:lists }

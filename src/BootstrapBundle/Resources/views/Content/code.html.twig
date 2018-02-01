@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}Code{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Code</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <p>https://github.com/nicodmf/HighlightBundle</p>
+                <p>https://ourcodeworld.com/articles/read/484/how-to-highlight-code-on-the-server-side-with-php-in-symfony-3</p>
+                
+                {#<pre><code class="twig">{{ template.source_code }}</code></pre>#}
+                {#<pre><code class="php">{{ controller.source_code }}</code></pre>#}
+                
+                <p>For example, <code>&lt;section&gt;</code> should be wrapped as inline.</p>
+<pre>
+<code>&lt;p&gt;Sample text here...&lt;/p&gt;
+&lt;p&gt;And another line of sample text here...&lt;/p&gt;</code>
+</pre>
+
+<h3>Twig template code</h3>
+<pre>
+<code class="twig">{{template}}</code>
+</pre>
+
+<h3>Controller code</h3>
+<pre>
+<code class="php">{{controller}}</code>
+</pre>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
