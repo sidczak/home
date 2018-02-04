@@ -39,13 +39,14 @@ class ContentController extends Controller
 EOF;
         
         $controller = 
-<<<EOF
+<<<'EOT'
 <?php
+...
 public function listsAction()
 {
-    return this->render('BootstrapBundle:Content:lists.html.twig');
+    return $this->render('BootstrapBundle:Content:lists.html.twig');
 }
-EOF;
+EOT;
         
         return $this->render('BootstrapBundle:Content:code.html.twig', [
             'template' => $template,
