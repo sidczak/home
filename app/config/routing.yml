@@ -5,6 +5,8 @@ tutorial:
 bootstrap:
     resource: "@BootstrapBundle/Resources/config/routing.yml"
     prefix:   /bootstrap
+    defaults:
+        _bundle: BootstrapBundle
 
 blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
