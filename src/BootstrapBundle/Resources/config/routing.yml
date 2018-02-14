@@ -1,6 +1,11 @@
 bootstrap_homepage:
     path:     /
     defaults: { _controller: BootstrapBundle:Start:index }
+
+bootstrap_react:
+    resource: "@BootstrapBundle/Controller/ReactController.php"
+    type:     annotation
+    prefix:   /react
     
 #bootstrap_content_typography:
 #    path:     /content/typography
