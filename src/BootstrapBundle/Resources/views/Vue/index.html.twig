@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}Vue{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Vue</h2>
+                    <p>https://codesandbox.io/s/3y7q582991</p>
+                    <p>https://laracasts.com/series/learn-vue-2-step-by-step/episodes/16?autoplay=true</p>
+                    <p>https://webmastah.pl/kurs-vue-js-krok-po-kroku-vue-loader/</p>
+                    <p>https://codingthesmartway.com/vue-js-2-quickstart-tutorial-2017/</p>
+                    <p>https://vuejs.org/v2/guide/single-file-components.html</p>
+                    <p>https://vue-loader.vuejs.org/en/features/css-modules.html</p>
+                    <p>https://tutorialzine.com/2016/03/5-practical-examples-for-learning-vue-js</p>
+                    
+                    <p>https://bootstrap-vue.js.org/docs/components/alert</p>
+                    <p>https://scotch.io/tutorials/build-an-app-with-vue-js-a-lightweight-alternative-to-angularjs</p>
+                    
+                    {#<div id="app" data-welcome="{{ title }}"></div>#}
+                    
+                    <div id="main">
+                        <!-- The navigation menu will get the value of the "active" variable as a class. -->
+
+                        <!-- To stops the page from jumping when a link is clicked 
+                            we use the "prevent" modifier (short for preventDefault). -->
+
+                        <nav v-bind:class="active" v-on:click.prevent>
+
+                            <!-- When a link in the menu is clicked, we call the makeActive method, 
+                            defined in the JavaScript Vue instance. It will change the value of "active". -->
+
+                            <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+                            <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
+                            <a href="#" class="services" v-on:click="makeActive('services')">Services</a>
+                            <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
+                        </nav>
+
+                        <!-- The mustache expression will be replaced with the value of "active".
+                             It will automatically update to reflect any changes. -->
+
+                        <p>You chose <b>{{ "{{active}}" }} ${ active }</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}
+    {{ include('BootstrapBundle:Vue:_vueScript.html.twig') }}
+    <script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>
+{% endblock %}
