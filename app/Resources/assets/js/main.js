@@ -17,11 +17,16 @@
 
             init: function () {
                 this.highlight();
+                this.svg4everybody();
                 this.navbarHeader();
             },
             
             highlight: function() {
                 hljs.initHighlightingOnLoad();
+            },
+            
+            svg4everybody: function() {
+                svg4everybody();
             },
 
             /**

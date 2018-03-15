@@ -63,5 +63,10 @@ EOT;
     {
         return $this->render('BootstrapBundle:Content:fonts.html.twig');
     }
+    
+    public function iconsAction()
+    {
+        return $this->render('BootstrapBundle:Content:icons.html.twig');
+    }
 }
 

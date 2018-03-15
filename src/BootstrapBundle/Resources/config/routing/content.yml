@@ -13,3 +13,7 @@ content_lists:
 content_fonts:
     path:     /fonts
     defaults: { _controller: BootstrapBundle:Content:fonts }
+    
+content_icons:
+    path:     /icons
+    defaults: { _controller: BootstrapBundle:Content:icons }

@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{% block title %}Welcome!{% endblock %}</title>
         
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -37,6 +38,7 @@
                 "%kernel.root_dir%/Resources/assets/js/docs/vendor/holder.min.js"
                 "%kernel.root_dir%/Resources/assets/js/docs/ie10-viewport-bug-workaround.js"
                 "%kernel.root_dir%/Resources/assets/js/highlight/highlight.min.js"
+                "%kernel.root_dir%/Resources/assets/js/svg4everybody.min.js"
                 "%kernel.root_dir%/Resources/assets/js/main.js"
             %}
                 <script src="{{ asset_url }}"></script>
