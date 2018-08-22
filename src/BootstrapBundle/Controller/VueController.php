@@ -17,5 +17,35 @@ class VueController extends Controller
             'title' => 'Welcome'
         ]);
     }
+    
+    /**
+     * @Route("/episode1-basic-data-binding", name="episode1_basic_data_binding")
+     */
+    public function episode1BasicDataBindingAction(Request $request)
+    {
+        return $this->render('BootstrapBundle:Vue:episode1BasicDataBinding.html.twig', [
+            'title' => 'Basic Data Binding'
+        ]);
+    }
+    
+    /**
+     * @Route("/episode2-setup-vue-devtools", name="episode2_setup_vue_devtools")
+     */
+    public function episode2SetupVueDevtoolsAction(Request $request)
+    {
+        return $this->render('BootstrapBundle:Vue:episode2SetupVueDevtools.html.twig', [
+            'title' => 'Setup Vue Devtools'
+        ]);
+    }
+    
+    /**
+     * @Route("/episode3-lists", name="episode3_lists")
+     */
+    public function episode3ListsAction(Request $request)
+    {
+        return $this->render('BootstrapBundle:Vue:episode3Lists.html.twig', [
+            'title' => 'Lists'
+        ]);
+    }
+    
 }
-

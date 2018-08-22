@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Learn Vue 2: {{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2><a href="{{ path('episode3_lists') }}">Learn Vue 2: {{title}}</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}
+    {{ include('BootstrapBundle:Vue:_vueScript.html.twig') }}
+    <script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>
+{% endblock %}
