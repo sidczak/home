@@ -5,10 +5,20 @@
     {#{{ show_source_code(_self) }}#}
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="mt-3">
                     <h2><a href="{{ path('episode3_lists') }}">Learn Vue 2: {{title}}</a></h2>
+                    <div id="root">
+                        <ul>
+                            <li v-for="name in names" v-text="name"></li>
+                        </ul>
+                        <input id="input" type="text">
+                        <button id="button">Add name</button>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                {{ include('BootstrapBundle:Vue:_sidebar.html.twig') }}
             </div>
         </div>
     </div>
@@ -17,5 +27,28 @@
 {% block stylesheets %}{% endblock %}
 {% block javascripts %}
     {{ include('BootstrapBundle:Vue:_vueScript.html.twig') }}
-    <script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        var app = new Vue({
+            el: '#root',
+            
+            data: {
+                
+                names: ['Szymon', 'Kuba', 'Maciek', 'Tomek']
+                
+            },
+            
+            mounted() {
+                document.querySelector('#button').addEventListener('click', () => {
+                    
+                    let name = document.querySelector('#input');
+                    
+                    app.names.push(name.value);
+                    
+                    name.value = '';
+                    
+                });
+            }
+        })
+    </script>
 {% endblock %}
