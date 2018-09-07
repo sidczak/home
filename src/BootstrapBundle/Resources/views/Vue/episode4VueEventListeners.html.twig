@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}Learn Vue 2: {{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="mt-3">
+                    <h2><a href="{{ path('episode4_vue_event_listeners') }}">Learn Vue 2: {{title}}</a></h2>
+                    <div id="root">
+                        <ul>
+                            <li v-for="name in names" v-text="name"></li>
+                        </ul>
+                        <input id="input" type="text" v-model="newName">
+                        <button @click="addName">Add name</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {{ include('BootstrapBundle:Vue:_sidebar.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}
+    {{ include('BootstrapBundle:Vue:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        var app = new Vue({
+            el: '#root',
+            
+            data: {
+                
+                newName: '',
+                
+                names: ['Szymon', 'Kuba', 'Maciek', 'Tomek']
+                
+            },
+            
+            methods: {
+                
+                addName () {
+                    
+                    this.names.push(this.newName),
+                    
+                    this.newName = ''
+                    
+                }
+                
+            }
+            
+        })
+    </script>
+{% endblock %}

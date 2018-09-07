@@ -48,4 +48,14 @@ class VueController extends Controller
         ]);
     }
     
+    /**
+     * @Route("/episode4-vue-event-listeners", name="episode4_vue_event_listeners")
+     */
+    public function episode4VueEventListenersAction(Request $request)
+    {
+        return $this->render('BootstrapBundle:Vue:episode4VueEventListeners.html.twig', [
+            'title' => 'Vue Event Listeners'
+        ]);
+    }
+    
 }
