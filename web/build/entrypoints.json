@@ -2,14 +2,10 @@
   "entrypoints": {
     "js/home": {
       "js": [
-        "/build/runtime.js",
         "/build/js/home.js"
       ]
     },
     "css/home": {
-      "js": [
-        "/build/runtime.js"
-      ],
       "css": [
         "/build/css/home.css"
       ]
