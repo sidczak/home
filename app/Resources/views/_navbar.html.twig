@@ -58,6 +58,16 @@
                     <a class="dropdown-item" href="{{ path('tutorial_shop_homepage') }}">Shop</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle
+                   {{ app.request.get('_bundle') ==  'VueBundle' ? 'active' }}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Vue
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ path('vue_homepage') }}">Vue - kursy</a>
+                    <a class="dropdown-item" href="{{ path('vue_basic_homepage') }}">Vue - basic</a>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link {{ app.request.get('_route') ==  'blog_homepage' ? 'active' }}" href="{{ path('blog_homepage') }}">Blog</a>
             </li>

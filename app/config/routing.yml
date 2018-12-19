@@ -1,3 +1,9 @@
+vue:
+    resource: "@VueBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/vue
+    defaults:
+        _bundle: VueBundle
+
 tutorial:
     resource: "@TutorialBundle/Resources/config/routing.yml"
     prefix:   /{_locale}/tutorial

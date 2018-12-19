@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new BlogBundle\BlogBundle(),
             new BootstrapBundle\BootstrapBundle(),
             new TutorialBundle\TutorialBundle(),
+            new VueBundle\VueBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -46,8 +46,9 @@
         {% endblock %}
         
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('build/js/home.js') }}"></script>
-        {#<script src="{{ asset('build/runtime.js') }}"></script>#}
-        
+        {% block javascriptsvue %}
+            <script src="{{ asset('build/js/home.js') }}"></script>
+            {#<script src="{{ asset('build/runtime.js') }}"></script>#}
+        {% endblock %}
     </body>
 </html>

@@ -1,0 +1,11 @@
+vue_basic_homepage:
+    path:     /
+    defaults: { _controller: "VueBundle:VueBasic:index"}
+
+vue_basic_example1:
+    path:     /example-1
+    defaults: { _controller: "VueBundle:VueBasic:example1"}
+
+vue_basic_example2:
+    path:     /example-2
+    defaults: { _controller: "VueBundle:VueBasic:example2"}
