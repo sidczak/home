@@ -8,11 +8,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mt-3">
-                    <h2>Example 2</h2>
+                    <h2>Example 3</h2>
 
                     <div id="app">
                         <h4>{{"{{ heading }}"}}</h4>
-                        <p>{{"{{ text }}"}}</p>
+                        <p>{{"{{ toUpperCase('Witaj świecie') }}"}}</p>
+                        <p>{{"{{ toUpperCase(text) }}"}}</p>
+                        <p>Imie: {{"{{ name }}"}}</p>
                     </div>
 
                 </div>
@@ -31,7 +33,16 @@
             el: "#app",
             data: {
                 heading: "Hello World",
-                text: "Witaj w świecie vue.js"
+                text: "Witaj w świecie vue.js",
+                name: ""
+            },
+            methods: {
+                toUpperCase: function(value) {
+                    return value.toUpperCase();
+                },
+                getName: function() {
+                    this.name = prompt("Podaj swoje imie:");
+                }
             }
         });
     </script>
