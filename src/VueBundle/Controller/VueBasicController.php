@@ -31,4 +31,12 @@ class VueBasicController extends Controller
 			'title' => 'Welcome Vue Basic - example3 - metody'
         ]);
     }
+    
+    public function example4Action()
+    {
+        return $this->render('VueBundle:VueBasic:example4.html.twig',[
+			'title' => 'Welcome Vue Basic - example4 - Wyliczone właściwości'
+        ]);
+    }
+
 }
