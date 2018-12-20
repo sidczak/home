@@ -39,4 +39,11 @@ class VueBasicController extends Controller
         ]);
     }
 
+    public function example5Action()
+    {
+        return $this->render('VueBundle:VueBasic:example5.html.twig',[
+            'title' => 'Welcome Vue Basic - example5 - Praca z szablonem'
+        ]);
+    }
+
 }
