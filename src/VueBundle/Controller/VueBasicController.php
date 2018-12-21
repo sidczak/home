@@ -46,4 +46,11 @@ class VueBasicController extends Controller
         ]);
     }
 
+    public function example6Action()
+    {
+        return $this->render('VueBundle:VueBasic:example6.html.twig',[
+            'title' => 'Welcome Vue Basic - example6 - Atrybuty'
+        ]);
+    }
+
 }
