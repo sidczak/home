@@ -53,4 +53,11 @@ class VueBasicController extends Controller
         ]);
     }
 
+    public function example7Action()
+    {
+        return $this->render('VueBundle:VueBasic:example7.html.twig',[
+            'title' => 'Welcome Vue Basic - example7 - Jak działają gettery i settery'
+        ]);
+    }
+
 }
