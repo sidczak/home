@@ -6,9 +6,10 @@ vue_basic:
     resource: "@VueBundle/Resources/config/routing/vue_basic.yml"
     prefix:   /basic
 
-# vue_advanced:
-#     resource: "@VueBundle/Resources/config/routing/vue_advanced.yml"
-#     prefix:   /advanced
+vue_advanced:
+    resource: "@VueBundle/Controller/VueAdvancedController.php"
+    type:     annotation
+    prefix:   /advanced
 
 # vue_laracast:
 #     resource: "@VueBundle/Resources/config/routing/vue_laracast.yml"
