@@ -60,4 +60,10 @@ class VueBasicController extends Controller
         ]);
     }
 
+    public function example8Action()
+    {
+        return $this->render('VueBundle:VueBasic:example8.html.twig',[
+            'title' => 'Welcome Vue Basic - example8 - Instancja Vue z bliska'
+        ]);
+    }
 }

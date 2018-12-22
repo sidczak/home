@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 8</h2>
+                    <div id="app">
+                        <h4>${ items.join(", ") }</h4>
+<pre>
+    <code>$vm0.swapArray()</code>
+    <code>$vm0.items.push("Woda")</code>
+    <code>$vm0.addItem()</code>
+    <code>$vm0.filterItems()</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        new Vue({
+            el: "#app",
+            delimiters: ['${', '}'],
+            data: {
+                items: [
+                    "Sok",
+                    "Mleko",
+                    "Chleb",
+                    "Szampan"
+                ]
+            },
+            methods: {
+                swapArray: function() {
+                    this.items = ["Mleko"];
+                },
+                addItem: function() {
+                    this.items.push( prompt("Podaj produkt: ") );
+                },
+                filterItems: function() {
+                    this.items = this.items.filter(function(item){
+                        return item.charAt(0) === "S";
+
+                    })
+                }
+            }
+        });
+
+        // push, pop, shift, unshift, splice, sort, reverse
+
+    </script>
+{% endblock %}
