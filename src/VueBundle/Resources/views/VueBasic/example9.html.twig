@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 9</h2>
+                    <div id="app">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    <script id="app-template" type="text/x-template">
+        <div>
+            <h4>${fullName}</h4>
+            <h5>Hello</h5>
+        </div>
+    </script>
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        var vm = new Vue({
+            delimiters: ['${', '}'],
+            //template: "<h4>${fullName}</h4>",
+            template: "#app-template",
+            data: {
+                firstName: "Jan",
+                lastName: "Kowalski"
+            },
+            computed: {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+
+                }
+            }
+        });
+
+        vm.$mount();
+
+        setTimeout(function() {
+            //vm.$mount("#app");
+            document.querySelector("#app").appendChild(vm.$el);
+        }, 1000);
+
+    </script>
+{% endblock %}
