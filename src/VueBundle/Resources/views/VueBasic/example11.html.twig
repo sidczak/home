@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 11</h2>
+
+                    <div id="app">
+                        <h4>Licznik: {{"{{ counter }}"}}</h4>
+                        <button class="btn btn-primary" v-on:click="counter++">Zwiększ licznik</button>
+                        <button class="btn btn-primary" v-on:click="increment">Zwiększ licznik</button>
+                        <button class="btn btn-primary" @click="increment" :disabled="counter >= 10">Zwiększ licznik >= 10</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            methods: {
+                increment: function() {
+                    this.counter++;
+                }
+            }
+        });
+    </script>
+{% endblock %}
