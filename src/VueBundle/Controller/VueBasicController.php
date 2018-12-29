@@ -87,4 +87,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example11 - Przypisywanie obsługi zdarzeń'
         ]);
     }
+
+    public function example12Action()
+    {
+        return $this->render('VueBundle:VueBasic:example12.html.twig',[
+            'title' => 'Welcome Vue Basic - example12 - Przypisywanie obsługi zdarzeń'
+        ]);
+    }
 }
