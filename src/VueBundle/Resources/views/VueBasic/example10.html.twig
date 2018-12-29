@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 10</h2>
+                    <div id="app">
+                        <p>${fullName}</p>
+<pre>
+<code>
+    var vm = new Vue({
+        el: "#app",
+        delimiters: ['${', '}'],
+        data: {
+            firstName: "Jan",
+            lastName: "Kowalski"
+        },
+        computed: {
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+
+            }
+        },
+        beforeCreate: function() {
+            console.log("beforeCreate");
+        },
+
+        created: function() {
+            console.log("created");
+        },
+
+        beforeMount: function() {
+            console.log("beforeMount");
+        },
+
+        mounted: function() {
+            console.log("mounted");
+        },
+
+        beforeUpdate: function() {
+            console.log("beforeUpdate");
+        },
+
+        updated: function() {
+            console.log("updated");
+        },
+
+        beforeDestroy: function() {
+            console.log("beforeDestroy");
+        },
+
+        destroyed: function() {
+            console.log("destroyed");
+        }
+    });
+</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            delimiters: ['${', '}'],
+            data: {
+                firstName: "Jan",
+                lastName: "Kowalski"
+            },
+            computed: {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+
+                }
+            },
+
+            beforeCreate: function() {
+                console.log("beforeCreate");
+            },
+
+            created: function() {
+                console.log("created");
+            },
+
+            beforeMount: function() {
+                console.log("beforeMount");
+            },
+
+            mounted: function() {
+                console.log("mounted");
+            },
+
+            beforeUpdate: function() {
+                console.log("beforeUpdate");
+            },
+
+            updated: function() {
+                console.log("updated");
+            },
+
+            beforeDestroy: function() {
+                console.log("beforeDestroy");
+            },
+
+            destroyed: function() {
+                console.log("destroyed");
+            }
+        });
+    </script>
+{% endblock %}
