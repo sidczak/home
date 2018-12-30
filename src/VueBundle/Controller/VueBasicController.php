@@ -101,4 +101,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example13 - Modyfikatory zdarzeń'
         ]);
     }
+
+    public function example14Action()
+    {
+        return $this->render('VueBundle:VueBasic:example14.html.twig',[
+            'title' => 'Welcome Vue Basic - example14 - Modyfikatory klawiszy'
+        ]);
+    }
 }
