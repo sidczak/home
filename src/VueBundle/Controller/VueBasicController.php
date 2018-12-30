@@ -123,4 +123,10 @@ class VueBasicController extends Controller
         ]);
     }
 
+    public function example17Action()
+    {
+        return $this->render('VueBundle:VueBasic:example17.html.twig',[
+            'title' => 'Welcome Vue Basic - example17 - Liniowe style CSS'
+        ]);
+    }
 }

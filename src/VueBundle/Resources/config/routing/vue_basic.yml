@@ -66,7 +66,9 @@ vue_basic_example16:
     path:     /example-16
     defaults: { _controller: "VueBundle:VueBasic:example16"}
 
-
+vue_basic_example17:
+    path:     /example-17
+    defaults: { _controller: "VueBundle:VueBasic:example17"}
 
 
 
