@@ -108,4 +108,12 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example14 - Modyfikatory klawiszy'
         ]);
     }
+
+    public function example15Action()
+    {
+        return $this->render('VueBundle:VueBasic:example15.html.twig',[
+            'title' => 'Welcome Vue Basic - example15 - Praca z klasami CSS'
+        ]);
+    }
+
 }
