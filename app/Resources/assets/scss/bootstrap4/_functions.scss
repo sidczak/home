@@ -80,7 +80,7 @@
 @function theme-color-level($color-name: "primary", $level: 0) {
   $color: theme-color($color-name);
   $color-base: if($level > 0, $black, $white);
-  $level: abs($level);
+  $level: abs($level + 0);
 
   @return mix($color-base, $color, $level * $theme-color-interval);
 }
