@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 21</h2>
+
+                    <div id="app">
+                    	<div class="row justify-content-center">
+                    		<div class="col-8 text-center">
+		                    	<div class="alert alert-primary" v-show="!inProgress">Naciśnij <strong>Start</strong> aby rozpocząć odliczanie.</div>
+		                        <h4>{{"{{ counter }}"}}</h4>
+		                        <button class="btn btn-primary" @click="start" :disabled="inProgress">Start</button>
+	                    	</div>
+                    	</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                counter: 10,
+                inProgress: false
+            },
+            methods: {
+            	start: function() {
+            		this.inProgress = true;
+            		this.countdown();
+            	},
+            	countdown: function() {
+            		this.counter--;
+            		if(this.counter > 0) {
+            			setTimeout(this.countdown, 1000);
+            		} else {
+            			setTimeout(() => {
+            				this.counter = 10;
+            				this.inProgress = false;
+            			}, 1000);
+            		}
+            	}
+            }
+        });
+    </script>
+{% endblock %}

@@ -150,4 +150,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example20 - Grupowanie elementów'
         ]);
     }
+
+    public function example21Action()
+    {
+        return $this->render('VueBundle:VueBasic:example21.html.twig',[
+            'title' => 'Welcome Vue Basic - example21 - Counter - Odliczanie'
+        ]);
+    }
 }
