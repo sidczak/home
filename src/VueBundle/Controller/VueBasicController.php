@@ -157,4 +157,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example21 - Counter - Odliczanie'
         ]);
     }
+
+    public function example22Action()
+    {
+        return $this->render('VueBundle:VueBasic:example22.html.twig',[
+            'title' => 'Welcome Vue Basic - example22 - Uchwyty do elementów z DOM'
+        ]);
+    }
 }
