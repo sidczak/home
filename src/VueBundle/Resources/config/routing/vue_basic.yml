@@ -74,5 +74,7 @@ vue_basic_example18:
     path:     /example-18
     defaults: { _controller: "VueBundle:VueBasic:example18"}
 
-
+vue_basic_example19:
+    path:     /example-19
+    defaults: { _controller: "VueBundle:VueBasic:example19"}
     

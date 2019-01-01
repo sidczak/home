@@ -136,4 +136,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example18 - Korzystanie z pętli'
         ]);
     }
+
+    public function example19Action()
+    {
+        return $this->render('VueBundle:VueBasic:example19.html.twig',[
+            'title' => 'Welcome Vue Basic - example19 - Unikalność elementów'
+        ]);
+    }
 }
