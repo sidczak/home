@@ -143,4 +143,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example19 - Unikalność elementów'
         ]);
     }
+
+    public function example20Action()
+    {
+        return $this->render('VueBundle:VueBasic:example20.html.twig',[
+            'title' => 'Welcome Vue Basic - example20 - Grupowanie elementów'
+        ]);
+    }
 }
