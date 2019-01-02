@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 24</h2>
+
+                    <div id="app">
+                        <h4>Formularz</h4>
+                        <form action="#" @submit.prevent="submit">
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label class="form-label">Imię:</label>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" type="text" placeholder="Podaj swoje imię" 
+                                    @change="firstName = $event.target.value" :value="firstName">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label class="form-label">Nazwisko:</label>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" type="text" placeholder="Podaj swoje nazwisko"
+                                    @input="lastName = $event.target.value" :value="lastName">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <button class="btn btn-primary float-right" :disabled="!isFilled">Wyślij</button>
+                                </div>
+                            </div>
+                        </form>
+                        <p>Twoje dane: {{"{{ fullName }}"}}</p>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                firstName: "",
+                lastName: "",
+            },
+            computed: {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                },
+                isFilled: function() {
+                    return this.firstName && this.lastName;
+                }
+            },
+            methods: {
+                submit: function(e) {
+                    console.log("Wysyłam dane: " + this.fullName);
+
+                }
+            }
+        });
+    </script>
+{% endblock %}
