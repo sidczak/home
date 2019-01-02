@@ -164,4 +164,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example22 - Uchwyty do elementów z DOM'
         ]);
     }
+
+    public function example23Action()
+    {
+        return $this->render('VueBundle:VueBasic:example23.html.twig',[
+            'title' => 'Welcome Vue Basic - example23 - Uchwyty do elementów z DOM'
+        ]);
+    }
 }
