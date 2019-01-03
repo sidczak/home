@@ -213,4 +213,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example29 - Tworzenie własnych filtrów'
         ]);
     }
+
+    public function example30Action()
+    {
+        return $this->render('VueBundle:VueBasic:example30.html.twig',[
+            'title' => 'Welcome Vue Basic - example30 - Sposoby na filtrowanie danych'
+        ]);
+    }
 }
