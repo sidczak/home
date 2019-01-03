@@ -178,4 +178,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example24 - Własna implementacja modelu'
         ]);
     }
+
+    public function example25Action()
+    {
+        return $this->render('VueBundle:VueBasic:example25.html.twig',[
+            'title' => 'Welcome Vue Basic - example25 - Praca z radio i checkbox'
+        ]);
+    }
 }
