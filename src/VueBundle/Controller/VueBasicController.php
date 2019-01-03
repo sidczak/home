@@ -206,4 +206,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example28 - Obserwowanie zmian wartości'
         ]);
     }
+
+    public function example29Action()
+    {
+        return $this->render('VueBundle:VueBasic:example29.html.twig',[
+            'title' => 'Welcome Vue Basic - example29 - Tworzenie własnych filtrów'
+        ]);
+    }
 }
