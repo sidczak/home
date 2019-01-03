@@ -192,4 +192,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example26 - Praca z polem select'
         ]);
     }
+
+    public function example27Action()
+    {
+        return $this->render('VueBundle:VueBasic:example27.html.twig',[
+            'title' => 'Welcome Vue Basic - example27 - Kontrolowanie zwracanych wartości'
+        ]);
+    }
 }
