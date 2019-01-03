@@ -199,4 +199,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example27 - Kontrolowanie zwracanych wartości'
         ]);
     }
+
+    public function example28Action()
+    {
+        return $this->render('VueBundle:VueBasic:example28.html.twig',[
+            'title' => 'Welcome Vue Basic - example28 - Obserwowanie zmian wartości'
+        ]);
+    }
 }
