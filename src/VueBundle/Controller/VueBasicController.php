@@ -220,4 +220,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example30 - Sposoby na filtrowanie danych'
         ]);
     }
+
+    public function example31Action()
+    {
+        return $this->render('VueBundle:VueBasic:example31.html.twig',[
+            'title' => 'Welcome Vue Basic - example31 - Tworzenie własnych dyrektyw'
+        ]);
+    }
 }
