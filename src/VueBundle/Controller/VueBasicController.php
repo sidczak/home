@@ -227,4 +227,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example31 - Tworzenie własnych dyrektyw'
         ]);
     }
+
+    public function example32Action()
+    {
+        return $this->render('VueBundle:VueBasic:example32.html.twig',[
+            'title' => 'Welcome Vue Basic - example32 - Tworzenie własnych komponentów'
+        ]);
+    }
 }
