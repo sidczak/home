@@ -234,4 +234,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example32 - Tworzenie własnych komponentów'
         ]);
     }
+
+    public function example33Action()
+    {
+        return $this->render('VueBundle:VueBasic:example33.html.twig',[
+            'title' => 'Welcome Vue Basic - example33 - Przekazywanie danych'
+        ]);
+    }
 }
