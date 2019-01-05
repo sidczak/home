@@ -262,4 +262,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example36 - Komunikacja pomiędzy komponentami w górę'
         ]);
     }
+
+    public function example37Action()
+    {
+        return $this->render('VueBundle:VueBasic:example37.html.twig',[
+            'title' => 'Welcome Vue Basic - example37 - Synchronizacja właściwości'
+        ]);
+    }
 }
