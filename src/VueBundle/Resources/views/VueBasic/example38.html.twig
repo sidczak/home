@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mt-3">
-                    <h2>Example 36</h2>
+                    <h2>Example 38</h2>
 
                     <div id="app">
 
@@ -25,7 +25,7 @@
                             </div>
                         </form>
 
-                        <edu-counter :init-value="initValue" @progress="toggleState"></edu-counter>
+                        <edu-counter :init-value="initValue"></edu-counter>
 
                     </div>
 
@@ -41,6 +41,13 @@
     {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
     {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
     <script>
+        var Event = new Vue({
+            methods: {
+                toggleState: function(value) {
+                    this.$emit("progress", value);
+                }
+            }
+        });
         var Counter = {
             template: `
                 <div class="row justify-content-center">
@@ -67,7 +74,7 @@
                 start: function() {
                     this.inProgress = true;
                     this.countdown();
-                    this.$emit("progress", this.inProgress);
+                    Event.toggleState(this.inProgress);
                 },
                 countdown: function() {
                     this.counter--;
@@ -77,7 +84,7 @@
                         setTimeout(() => {
                             this.counter = this.initValue;
                             this.inProgress = false;
-                            this.$emit("progress", this.inProgress);
+                            Event.toggleState(this.inProgress);
                         }, 1000);
                     }
                 }
@@ -101,6 +108,9 @@
             },
             components: {
                 "edu-counter": Counter
+            },
+            created: function() {
+                Event.$on("progress", this.toggleState);
             }
         });
     </script>
