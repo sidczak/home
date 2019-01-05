@@ -133,3 +133,7 @@ vue_basic_example32:
 vue_basic_example33:
     path:     /example-33
     defaults: { _controller: "VueBundle:VueBasic:example33"}
+
+vue_basic_example34:
+    path:     /example-34
+    defaults: { _controller: "VueBundle:VueBasic:example34"}

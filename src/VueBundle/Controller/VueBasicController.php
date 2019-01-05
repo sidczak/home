@@ -241,4 +241,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example33 - Przekazywanie danych'
         ]);
     }
+
+    public function example34Action()
+    {
+        return $this->render('VueBundle:VueBasic:example34.html.twig',[
+            'title' => 'Welcome Vue Basic - example34 - Przekazywanie danych'
+        ]);
+    }
 }
