@@ -255,4 +255,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example35 - Komunikacja pomiędzy komponentami w dół'
         ]);
     }
+
+    public function example36Action()
+    {
+        return $this->render('VueBundle:VueBasic:example36.html.twig',[
+            'title' => 'Welcome Vue Basic - example36 - Komunikacja pomiędzy komponentami w górę'
+        ]);
+    }
 }
