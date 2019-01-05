@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 35</h2>
+
+                    <div id="app">
+
+                        <form action="#">
+                            <div class="form-group row">
+                                <div class="col-2">
+                                    <label class="form-label">Wybierz wartość startową:</label>
+                                </div>
+                                <div class="col">
+                                    <select class="form-control" v-model="initValue">
+                                        <option v-for="i in 10" :value="i">{{"{{ i }}"}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+
+                        <edu-counter :init-value="initValue"></edu-counter>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        var Counter = {
+            template: `
+                <div class="row justify-content-center">
+                    <div class="col-8 text-center">
+                        <div class="alert alert-primary" v-show="!inProgress">Naciśnij <strong>Start</strong> aby rozpocząć odliczanie.</div>
+                        <h4>{{"{{ counter }}"}}</h4>
+                        <button class="btn btn-primary" @click="start" :disabled="inProgress">Start</button>
+                    </div>
+                </div>
+            `,
+            props: ["initValue"],
+            data: function() {
+                return {
+                    counter: this.initValue,
+                    inProgress: false
+                };
+            },
+            watch: {
+                initValue: function(newValue) {
+                    this.counter = newValue;
+                }
+            },
+            methods: {
+                start: function() {
+                    this.inProgress = true;
+                    this.countdown();
+                },
+                countdown: function() {
+                    this.counter--;
+                    if(this.counter > 0) {
+                        setTimeout(this.countdown, 1000);
+                    } else {
+                        setTimeout(() => {
+                            this.counter = this.initValue;
+                            this.inProgress = false;
+                        }, 1000);
+                    }
+                }
+            },
+            // created() {
+            //     this.counter = this.initValue
+            // }
+        };
+
+        new Vue({
+            el: "#app",
+            data: {
+                initValue: 10
+            },
+            components: {
+                "edu-counter": Counter
+            }
+        });
+    </script>
+{% endblock %}

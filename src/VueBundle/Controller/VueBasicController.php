@@ -245,7 +245,14 @@ class VueBasicController extends Controller
     public function example34Action()
     {
         return $this->render('VueBundle:VueBasic:example34.html.twig',[
-            'title' => 'Welcome Vue Basic - example34 - Przekazywanie danych'
+            'title' => 'Welcome Vue Basic - example34 - Walidacja przekazywanych danych'
+        ]);
+    }
+
+    public function example35Action()
+    {
+        return $this->render('VueBundle:VueBasic:example35.html.twig',[
+            'title' => 'Welcome Vue Basic - example35 - Komunikacja pomiędzy komponentami w dół'
         ]);
     }
 }
