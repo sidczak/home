@@ -276,4 +276,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example38 - Inne metody komunikacji'
         ]);
     }
+
+    public function example39Action()
+    {
+        return $this->render('VueBundle:VueBasic:example39.html.twig',[
+            'title' => 'Welcome Vue Basic - example39 - Edytowalna lista użytkowników cz.1'
+        ]);
+    }
 }
