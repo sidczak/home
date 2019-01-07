@@ -13,20 +13,7 @@
                     <div id="app">
                         <h4>Formularz</h4>
                         <div class="table-responsive">
-	                        <table class="table table-striped table-hover">
-	                        	<thead>
-	                        		<tr>
-		                        		<th>Lp.</th>
-		                        		<th>Imię i nazwisko</th>
-		                        		<th>Wiek</th>
-                                        <th>Edit</th>
-                                        <th>Usuń</th>
-	                        		</tr>
-	                        	</thead>
-	                        	<tbody>
-                                    <tr is="edu-user" v-for="(user, index) in users" :user="user" :index="index" @remove="removeUser"></tr>
-	                        	</tbody>
-	                        </table>
+                            <edu-users :users=users></edu-users>
                     	</div>
                         <ol>
                             <li v-for="user in users">${ user.firstName } ${ user.lastName } - ${ user.age }</li>
@@ -45,6 +32,32 @@
     {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
     {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
     <script>
+        var Event = new Vue({
+            methods: {
+                remove: function(id) {
+                    this.$emit("remove", id);
+                }
+            }
+        });
+        Vue.component("edu-users", {
+            template:`
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Lp.</th>
+                            <th>Imię i nazwisko</th>
+                            <th>Wiek</th>
+                            <th>Edit</th>
+                            <th>Usuń</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <edu-user v-for="(user, index) in users" :user="user" :index="index" :key="user.id"></edu-user>
+                    </tbody>
+                </table>
+            `,
+            props: ["users"]
+        });
         Vue.component("edu-user", {
             template: `
                 <tr>
@@ -64,7 +77,18 @@
                             {{"{{ user.firstName }}"}} {{"{{ user.lastName }}"}}
                         </template>
                     </td>
-                    <td>{{"{{ user.age }}"}}</td>
+                    <td>
+                        <template v-if="editMode">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="number" class="form-control" placeholder="Age" v-model.lazy="user.age">
+                                </div>
+                            </div>
+                        </template>
+                        <template v-else>
+                            {{"{{ user.age }}"}}
+                        </template>
+                    </td>
                     <td>
                         <button class="btn btn-primary" @click="editMode = !editMode">
                             <i class="fa" :class="{'fa-pencil': !editMode, 'fa-check': editMode}"></i>
@@ -85,7 +109,7 @@
             props: ["user", "index"],
             methods: {
                 remove: function(id) {
-                    this.$emit("remove", id);
+                    Event.remove(id);
                 }
             }
         });
@@ -108,6 +132,9 @@
                     this.users.splice(index,1);
 
                 }
+            },
+            created: function() {
+                Event.$on("remove", this.removeUser);
             }
         });
     </script>
