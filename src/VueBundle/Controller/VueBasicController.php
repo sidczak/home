@@ -297,4 +297,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example41 - Edytowalna lista użytkowników cz.3'
         ]);
     }
+
+    public function example42Action()
+    {
+        return $this->render('VueBundle:VueBasic:example42.html.twig',[
+            'title' => 'Welcome Vue Basic - example42 - Dynamiczna podmiana komponentów'
+        ]);
+    }
 }
