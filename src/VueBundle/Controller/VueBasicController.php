@@ -311,4 +311,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example43 - Kontrola treści komponentu za pomocą slotu'
         ]);
     }
+
+    public function example44Action()
+    {
+        return $this->render('VueBundle:VueBasic:example44.html.twig',[
+            'title' => 'Welcome Vue Basic - example44 - Tworzenie wielu slotów'
+        ]);
+    }
 }
