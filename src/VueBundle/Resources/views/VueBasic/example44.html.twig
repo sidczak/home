@@ -4,41 +4,7 @@
 {% block body %}
     {#{{ show_source_code(_self) }}#}
     <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mt-3">
-                        <h2>Example 44</h2>
-                        <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('vue_basic_example42') }}"><strong>Vue.js</strong></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" @click.prevent="view='edu-home'">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" @click.prevent="view='edu-users'">Użytkownicy</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <section>
-                        <keep-alive>
-                            <component :is="view" :users="users">
-                                <h3>Panel administracyjny!</h3>
-                                <p>Skorzystaj z nawigacji powyżej.</p>
-                            </component>
-                        </keep-alive>
-                    </section>
-                    {#<edu-users :users=users></edu-users>#}
-                </div>
-            </div>
-        </div>
+        <edu-app></edu-app>
     </div>
 {% endblock %}
 
@@ -54,6 +20,68 @@
                 remove: function(id) {
                     this.$emit("remove", id);
                 }
+            }
+        });
+        Vue.component("edu-app", {
+            template: `
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-3">
+                                    <h2>Example 44</h2>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ path('vue_basic_example42') }}"><strong>Vue.js</strong></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" @click.prevent="view='edu-home'">Home</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" @click.prevent="view='edu-users'">Użytkownicy</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section>
+                                    <keep-alive>
+                                        <component :is="view" :users="users">
+                                            <h3>Panel administracyjny!</h3>
+                                            <p>Skorzystaj z nawigacji powyżej.</p>
+                                        </component>
+                                    </keep-alive>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            data: function() {
+                return {
+                    title: "Aplikacja",
+                    view: "edu-home",
+                    users: [
+                        {id: 1, firstName: "Jan", lastName: "Kowalski", age: 32},
+                        {id: 2, firstName: "Anna", lastName: "Nowak", age: 27},
+                        {id: 3, firstName: "Tomasz", lastName: "Zieliński", age: 40},
+                        {id: 4, firstName: "Katarzyna", lastName: "Tomczak", age: 34},
+                        {id: 5, firstName: "Mariusz", lastName: "Murawski", age: 21}
+                    ]
+                };
+            },
+            methods: {
+                remove: function(id) {
+                    var index = _.findIndex(this.users, ["id", id]);
+                    this.users.splice(index, 1);
+                }
+            },
+            created: function() {
+                Event.$on("remove", this.remove);
             }
         });
         Vue.component("edu-home", {
@@ -89,6 +117,9 @@
                             <edu-user v-for="(user, index) in users" :user="user" :index="index" :key="user.id"></edu-user>
                         </tbody>
                     </table>
+                    <ol>
+                        <li v-for="user in users">{{"{{user.firstName}}"}} {{"{{user.lastName}}"}} - {{"{{user.age}}"}}</li>
+                    </ol>
                 </div>
             `,
             props: ["users"],
@@ -162,28 +193,7 @@
         });
 
         new Vue({
-            el: "#app",
-            delimiters: ['${', '}'],
-            data: {
-                view: "edu-home",
-                users: [
-                    {id: 1, firstName: "Jan", lastName: "Kowalski", age: 32},
-                    {id: 2, firstName: "Anna", lastName: "Nowak", age: 27},
-                    {id: 3, firstName: "Tomasz", lastName: "Zieliński", age: 40},
-                    {id: 4, firstName: "Katarzyna", lastName: "Tomczak", age: 34},
-                    {id: 5, firstName: "Mariusz", lastName: "Murawski", age: 21}
-                ]
-            },
-            methods: {
-                removeUser: function(id) {
-                    var index = _.findIndex(this.users, ["id", id]);
-                    this.users.splice(index,1);
-
-                }
-            },
-            created: function() {
-                Event.$on("remove", this.removeUser);
-            }
+            el: "#app"
         });
     </script>
 {% endblock %}
