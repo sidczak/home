@@ -304,4 +304,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example42 - Dynamiczna podmiana komponentów'
         ]);
     }
+
+    public function example43Action()
+    {
+        return $this->render('VueBundle:VueBasic:example43.html.twig',[
+            'title' => 'Welcome Vue Basic - example43 - Kontrola treści komponentu za pomocą slotu'
+        ]);
+    }
 }
