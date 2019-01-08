@@ -318,4 +318,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example44 - Tworzenie wielu slotów'
         ]);
     }
+
+    public function example45Action()
+    {
+        return $this->render('VueBundle:VueBasic:example45.html.twig',[
+            'title' => 'Welcome Vue Basic - example45 - Implementacja modelu na komponencie'
+        ]);
+    }
 }

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 25</h2>
+
+                    <div id="app">
+                        <h4>Zgody</h4>
+                        <edu-switch v-model="agreements.terms">
+                            Akceptuję <a href="#">regulamin</a>.
+                        </edu-switch>
+                        <edu-switch v-model="agreements.newsletter">
+                            Zapisz mnie na newsletter.
+                        </edu-switch>
+                        <edu-switch v-model="agreements.billing">
+                            Obciążaj moje konto comiesięcznie.
+                        </edu-switch>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% block javascriptsvue %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    {{ include('VueBundle:VueBasic:_vueScript.html.twig') }}
+    {#<script src="{{ asset('js/vue/quick-start.vue.js') }}"></script>#}
+    <script>
+        Vue.component("edu-switch", {
+            template: `
+                <div class="form-group row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" v-model="isChecked">
+                            <label class="form-check-label"><slot></slot></label>
+                        </div>
+                    </div>
+                </div>
+            `,
+            props: {
+                value: Boolean
+            },
+            data: function() {
+                return {
+                    isChecked: this.value
+                };
+            },
+            watch: {
+                isChecked: function() {
+                    this.$emit("input", this.isChecked);
+                }
+            }
+        });
+
+        new Vue({
+            el: "#app",
+            data: {
+                agreements: {
+                    terms: false,
+                    newsletter: false,
+                    billing: false
+                }
+            }
+        });
+    </script>
+{% endblock %}
