@@ -353,4 +353,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example49 - Integracja z animate.css'
         ]);
     }
+
+    public function example50Action()
+    {
+        return $this->render('VueBundle:VueBasic:example50.html.twig',[
+            'title' => 'Welcome Vue Basic - example50 - Własny komponent animacji'
+        ]);
+    }
 }
