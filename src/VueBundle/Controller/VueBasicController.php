@@ -325,4 +325,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example45 - Implementacja modelu na komponencie'
         ]);
     }
+
+    public function example46Action()
+    {
+        return $this->render('VueBundle:VueBasic:example46.html.twig',[
+            'title' => 'Welcome Vue Basic - example46 - Podstawy animacji'
+        ]);
+    }
 }
