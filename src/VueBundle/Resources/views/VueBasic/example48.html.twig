@@ -12,11 +12,11 @@
 
                     <div id="app" v-cloak>
                         <h4 class="mb-3">Użytkownicy</h4>
-                        <button class="btn btn-primary">Pomieszaj</button>
+                        <button class="btn btn-primary" @click="shuffle">Pomieszaj</button>
                         <hr/>
-                        <ul>
+                        <transition-group tag="ul" name="fade" appear>
                         	<li v-for="user in users" :key="user.id" @click="remove(user.id)">{{"{{user.firstName}}"}} {{"{{user.lastName}}"}}</li>
-                        </ul>
+                        </transition-group>
                     </div>
 
                 </div>
@@ -34,6 +34,16 @@
     .fade-enter-active,
     .fade-leave-active {
         transition: opacity 0.5s;
+    }
+    .fade-leave-active {
+    	position: absolute;
+    }
+    .fade-move {
+    	transition: transform 0.5s;
+    }
+    .fade-enter,
+    .fade-leave-to {
+    	opacity: 0;
     }
 </style>
 {% endblock %}
@@ -58,6 +68,9 @@
             	remove: function(id){
                 	var index = _.findIndex(this.users, ["id", id]);
                 	this.users.splice(index, 1);
+            	},
+            	shuffle: function() {
+            		this.users = _.shuffle(this.users);
             	}
             }
         });
