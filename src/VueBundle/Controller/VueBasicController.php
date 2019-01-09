@@ -346,4 +346,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example48 - Animacje listy'
         ]);
     }
+
+    public function example49Action()
+    {
+        return $this->render('VueBundle:VueBasic:example49.html.twig',[
+            'title' => 'Welcome Vue Basic - example49 - Integracja z animate.css'
+        ]);
+    }
 }
