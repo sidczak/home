@@ -332,4 +332,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example46 - Podstawy animacji'
         ]);
     }
+
+    public function example47Action()
+    {
+        return $this->render('VueBundle:VueBasic:example47.html.twig',[
+            'title' => 'Welcome Vue Basic - example47 - Animacje zmiany komponentu'
+        ]);
+    }
 }
