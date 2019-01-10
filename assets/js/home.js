@@ -4,6 +4,6 @@ import VueRouter from 'vue-router';
 import App from './App';
 
 new Vue({
-    template: '<App/>',
-    components: { App },
-}).$mount('#app');
+    el: '#app',
+    render: h => h(App)
+});

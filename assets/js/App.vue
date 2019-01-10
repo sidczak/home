@@ -1,9 +1,22 @@
 <template>
-    <h1>Hello world vue</h1>
+    <div id="app">
+    	<HelloWorld/>
+    </div>
 </template>
 
 <script>
-    export default {
-        name: 'app',
+import HelloWorld from './components/HelloWorld'
+
+export default {
+    name: 'App',
+    components: {
+    	HelloWorld
     }
+}
 </script>
+
+<style>
+#app {
+  color: #2c3e50;
+}
+</style>
