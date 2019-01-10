@@ -360,4 +360,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example50 - Własny komponent animacji'
         ]);
     }
+
+    public function example51Action()
+    {
+        return $this->render('VueBundle:VueBasic:example51.html.twig',[
+            'title' => 'Welcome Vue Basic - example51 - Praca z narzędziem vue-cli'
+        ]);
+    }
 }
