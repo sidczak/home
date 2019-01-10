@@ -367,4 +367,11 @@ class VueBasicController extends Controller
             'title' => 'Welcome Vue Basic - example51 - Praca z narzędziem vue-cli'
         ]);
     }
+
+    public function example52Action()
+    {
+        return $this->render('VueBundle:VueBasic:example52.html.twig',[
+            'title' => 'Welcome Vue Basic - example52 - Tworzenie własnego komponentu'
+        ]);
+    }
 }
