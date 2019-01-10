@@ -370,8 +370,143 @@ class VueBasicController extends Controller
 
     public function example52Action()
     {
+        $vueHome = 
+<<<EOF
+{% extends 'base.html.twig' %}
+{% block title %}Lists{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Lists</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h1>{{ title }}</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+EOF;
+        $vueApp = 
+<<<EOF
+<template>
+    <div id="app">
+        <HelloWorld/>
+
+        <form action="#">
+            <div class="form-group row">
+                <div class="col-2">
+                    <label class="form-label">Wybierz wartość startową:</label>
+                </div>
+                <div class="col">
+                    <select class="form-control" v-model="initValue" :disabled="inProgress">
+                        <option v-for="i in 10" :value="i">{{ i }}</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <Counter :init-value="initValue" @progress="toggleState" />
+        
+    </div>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld'
+import Counter from './components/Counter'
+
+export default {
+    name: 'App',
+    components: {
+        HelloWorld,
+        Counter
+    },
+    data() {
+        return {
+            initValue: 10,
+            inProgress: false
+        }
+    },
+    methods: {
+        toggleState: function(value) {
+            this.inProgress = value;
+        }
+    }
+}
+</script>
+
+<style>
+#app {
+  color: #2c3e50;
+}
+</style>
+EOF;
+        $vueCounter = 
+<<<EOF
+<template>
+    <div class="row justify-content-center">
+        <div class="col-8 text-center">
+            <div class="alert alert-primary" v-show="!inProgress">Naciśnij <strong>Start</strong> aby rozpocząć odliczanie.</div>
+            <h4>{{ counter }}</h4>
+            <button class="btn btn-primary" @click="start" :disabled="inProgress">Start</button>
+        </div>
+    </div>
+</template>
+
+<script>
+
+    export default {
+        name: 'Counter',
+        props: ["initValue"],
+        data() {
+            return {
+                counter: this.initValue,
+                inProgress: false
+            };
+        },
+        watch: {
+            initValue: function(newValue) {
+                this.counter = newValue;
+            }
+        },
+        methods: {
+            start: function() {
+                this.countdown();
+                this.inProgress = true;
+                this.emit("progress", this.inProgress);
+            },
+            countdown: function() {
+
+                this.counter--;
+
+                if(this.counter > 0) {
+                    setTimeout(this.countdown, 1000);
+                } else {
+                    setTimeout(() => {
+                        this.counter = this.initValue;
+                        this.inProgress = false;
+                        this.emit("progress", this.inProgress);
+                    }, 1000);
+                }
+
+            }
+        }
+    };
+
+</script>
+EOF;
+
         return $this->render('VueBundle:VueBasic:example52.html.twig',[
-            'title' => 'Welcome Vue Basic - example52 - Tworzenie własnego komponentu'
+            'title' => 'Welcome Vue Basic - example52 - Tworzenie własnego komponentu',
+            'vueHome' => $vueHome,
+            'vueApp' => $vueApp,
+            'vueCounter' => $vueCounter
         ]);
     }
 }
