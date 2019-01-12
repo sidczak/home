@@ -3,7 +3,7 @@
         <div class="col-8 text-center">
             <div class="alert alert-primary" v-show="!inProgress">Naciśnij <strong>Start</strong> aby rozpocząć odliczanie.</div>
             <h4>{{ counter }}</h4>
-            <button class="btn btn-primary" @click="start" :disabled="inProgress">Start</button>
+            <button class="btn btn-primary btn-counter" @click="start" :disabled="inProgress">Start</button>
         </div>
     </div>
 </template>
@@ -49,3 +49,11 @@
     };
 
 </script>
+<style lang="scss" scoped>
+    .btn {
+        &-counter {
+            font-size: 24px;
+            padding: 0.375rem 30px;
+        }
+    }
+</style>

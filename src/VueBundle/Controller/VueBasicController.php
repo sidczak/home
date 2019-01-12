@@ -509,4 +509,12 @@ EOF;
             'vueCounter' => $vueCounter
         ]);
     }
+
+    public function example53Action()
+    {
+        return $this->render('VueBundle:VueBasic:example53.html.twig',[
+            'title' => 'Welcome Vue Basic - example53 - Praca ze stylami CSS'
+        ]);
+    }
 }
+
