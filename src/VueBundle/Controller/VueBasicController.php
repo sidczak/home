@@ -372,27 +372,16 @@ class VueBasicController extends Controller
     {
         $vueHome = 
 <<<EOF
-{% extends 'base.html.twig' %}
-{% block title %}Lists{% endblock %}
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
-{% block body %}
-    {#{{ show_source_code(_self) }}#}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="mt-3">
-                    <h2>Lists</h2>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <h1>{{ title }}</h1>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+import App from './App';
+import '../css/home.scss';
 
-{% block stylesheets %}{% endblock %}
-{% block javascripts %}{% endblock %}
+new Vue({
+    el: '#app',
+    render: h => h(App)
+});
 EOF;
         $vueApp = 
 <<<EOF
@@ -514,6 +503,169 @@ EOF;
     {
         return $this->render('VueBundle:VueBasic:example53.html.twig',[
             'title' => 'Welcome Vue Basic - example53 - Praca ze stylami CSS'
+        ]);
+    }
+
+    public function example54Action()
+    {
+        $vueHome = 
+<<<EOF
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+import App from './App';
+import '../css/home.scss';
+
+new Vue({
+    el: '#app',
+    render: h => h(App)
+});
+EOF;
+        $vueApp = 
+<<<EOF
+<template>
+    <div id="app">
+        <HelloWorld/>
+        <h3>Pokaz zdjęć</h3>
+        <Slideshow :images="images"/>
+    </div>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld'
+import Slideshow from './components/Slideshow'
+
+export default {
+    name: 'App',
+    components: {
+        HelloWorld,
+        Slideshow
+    },
+    data() {
+        return {
+            images: [
+                {
+                    "url": "http://code.eduweb.pl/kurs-vue/media/images/image-1.jpg"
+                },
+                {
+                    "url": "http://code.eduweb.pl/kurs-vue/media/images/image-2.jpg"
+                },
+                {
+                    "url": "http://code.eduweb.pl/kurs-vue/media/images/image-3.jpg"
+                }
+            ]
+        }
+    }
+}
+</script>
+EOF;
+        $vueSlideshow = 
+<<<EOF
+<template>
+    <div class="slides-wrapper">
+
+        <button class="btn btn-primary btn-lg slides-prev" :disabled="start" @click="changeSlide(-1)">
+            <i class="fa fa-angle-left"></i>
+        </button>
+
+        <div class="slides">
+            <Slide :url="activeUrl" :number="number" />
+        </div>
+
+        <button class="btn btn-primary btn-lg slides-next" :disabled="end" @click="changeSlide(1)">
+            <i class="fa fa-angle-right"></i>
+        </button>
+
+    </div>
+</template>
+<script>
+    import Slide from "./Slide"
+
+    export default {
+        name: 'Slideshow',
+        props: {
+            images: Array
+        },
+        data() {
+            return {
+                active: 0
+            }
+        },
+        components: {
+            Slide
+        },
+        computed: {
+            activeUrl() {
+                return this.images[this.active].url
+            },
+            number() {
+                return `&{this.active + 1}/&{this.images.length}`;
+            },
+            start() {
+                return this.active === 0;
+            },
+            end() {
+                return this.active === this.images.length - 1;
+            }
+        },
+        methods: {
+            changeSlide(dir) {
+                let index = this.active + dir;
+                let slide = this.images[index];
+                
+                if(slide !== undefined) {
+                    this.active = index;
+                }
+            }
+        }
+    }
+</script>
+<style lang="scss" scoped>
+    .slides {
+        &-wrapper {
+            min-height: 300px;
+            position: relative;
+        }
+        &-next,
+        &-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &-prev {
+            left: 0;
+        }
+
+        &-next {
+            right: 0;
+        }
+    }
+</style>
+EOF;
+        $vueSlide = 
+<<<EOF
+<template>
+    <figure>
+        <img :src="url" alt="" class="img-fluid">
+        <figcaption class="text-center text-muted">{{number}}</figcaption>
+    </figure>
+</template>
+<script>
+export default {
+    name: "Slide",
+    props: {
+        url: String,
+        number: String
+    }
+}
+</script>
+EOF;
+        return $this->render('VueBundle:VueBasic:example54.html.twig',[
+            'title' => 'Welcome Vue Basic - example54 - Tworzenie komponentów Slideshow',
+            'vueHome' => $vueHome,
+            'vueApp' => $vueApp,
+            'vueSlideshow' => $vueSlideshow,
+            'vueSlide' => $vueSlide,
         ]);
     }
 }

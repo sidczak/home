@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 54</h2>
+
+                    <div id="app"></div>
+
+                    <pre>
+                        <code>
+# assets/js/home.js
+{{ vueHome }}
+                        </code>
+                    </pre>
+
+                    <pre>
+                        <code>
+# assets/js/App.vue
+{{ vueApp }}
+                        </code>
+                    </pre>
+
+                    <pre>
+                        <code>
+# assets/js/components/Slideshow.vue
+{{ vueSlideshow }}
+                        </code>
+                    </pre>
+
+                    <pre>
+                        <code>
+# assets/js/components/Slide.vue
+{{ vueSlide }}
+                        </code>
+                    </pre>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
