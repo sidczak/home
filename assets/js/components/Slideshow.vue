@@ -1,22 +1,23 @@
 <template>
-    <div class="slides-wrapper">
+    <div class="slides-wrapper" :class="{'loading': isLoading}">
 
-        <button class="btn btn-primary btn-lg slides-prev" :disabled="start" @click="changeSlide(-1)">
+        <button class="btn btn-primary btn-lg slides-prev" :disabled="start || isLoading" @click="changeSlide(-1)">
             <i class="fa fa-angle-left"></i>
         </button>
 
         <div class="slides">
-            <Slide :url="activeUrl" :number="number" />
+            <Slide :url="activeUrl" :number="number" :class="{'dimmed': isLoading}"/>
         </div>
 
-        <button class="btn btn-primary btn-lg slides-next" :disabled="end" @click="changeSlide(1)">
+        <button class="btn btn-primary btn-lg slides-next" :disabled="end || isLoading" @click="changeSlide(1)">
             <i class="fa fa-angle-right"></i>
         </button>
 
     </div>
 </template>
 <script>
-    import Slide from "./Slide"
+    import {preloadImage} from "../helpers/helpers";
+    import Slide from "./Slide";
 
     export default {
         name: 'Slideshow',
@@ -25,7 +26,8 @@
         },
         data() {
             return {
-                active: 0
+                active: 0,
+                isLoading: false
             }
         },
         components: {
@@ -51,7 +53,13 @@
                 let slide = this.images[index];
                 
                 if(slide !== undefined) {
-                    this.active = index;
+                    //this.active = index;
+                    this.isLoading = true;
+                    preloadImage(this.images[index].url)
+                        .then(url => {
+                            this.active = index;
+                            this.isLoading = false;
+                        });
                 }
             }
         }

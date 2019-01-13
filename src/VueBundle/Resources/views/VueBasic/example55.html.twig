@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 55</h2>
+
+                    <div id="app"></div>
+                    <pre>
+                        <code>
+# assets/js/helpers/helpers.js
+export function preloadImage(url) {
+
+    const img = document.createElement("img");
+    const p = new Promise(function(resolve, reject) {
+        img.onload = () => resolve(url);
+        img.onerror = () => reject(url);
+    });
+
+    img.src = url;
+
+    return p;
+
+}
+                        </code>
+                    </pre>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}

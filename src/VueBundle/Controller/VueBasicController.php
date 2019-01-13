@@ -468,7 +468,7 @@ EOF;
             start: function() {
                 this.countdown();
                 this.inProgress = true;
-                this.emit("progress", this.inProgress);
+                this.&emit("progress", this.inProgress);
             },
             countdown: function() {
 
@@ -480,7 +480,7 @@ EOF;
                     setTimeout(() => {
                         this.counter = this.initValue;
                         this.inProgress = false;
-                        this.emit("progress", this.inProgress);
+                        this.&emit("progress", this.inProgress);
                     }, 1000);
                 }
 
@@ -668,5 +668,13 @@ EOF;
             'vueSlide' => $vueSlide,
         ]);
     }
+
+    public function example55Action()
+    {
+        return $this->render('VueBundle:VueBasic:example55.html.twig',[
+            'title' => 'Welcome Vue Basic - example55 - Dodanie preloadera obrazów'
+        ]);
+    }
+
 }
 
