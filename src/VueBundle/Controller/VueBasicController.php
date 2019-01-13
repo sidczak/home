@@ -676,5 +676,11 @@ EOF;
         ]);
     }
 
+    public function example56Action()
+    {
+        return $this->render('VueBundle:VueBasic:example56.html.twig',[
+            'title' => 'Welcome Vue Basic - example56 - Pobieranie danych z serwera'
+        ]);
+    }
 }
 

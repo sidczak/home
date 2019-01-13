@@ -7,8 +7,9 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Slideshow from './components/Slideshow'
+import axios from 'axios';
+import HelloWorld from './components/HelloWorld';
+import Slideshow from './components/Slideshow';
 
 export default {
     name: 'App',
@@ -16,20 +17,17 @@ export default {
         HelloWorld,
         Slideshow
     },
+    props: {
+        endpoint: String
+    },
     data() {
         return {
-            images: [
-                {
-                    "url": "http://code.eduweb.pl/kurs-vue/media/images/image-1.jpg"
-                },
-                {
-                    "url": "http://code.eduweb.pl/kurs-vue/media/images/image-2.jpg"
-                },
-                {
-                    "url": "http://code.eduweb.pl/kurs-vue/media/images/image-3.jpg"
-                }
-            ]
-        }
+            images: []
+        };
+    },
+    created() {
+        axios.get(this.endpoint)
+            .then(res => this.images = res.data);
     }
 }
 </script>

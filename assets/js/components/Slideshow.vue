@@ -1,17 +1,21 @@
 <template>
-    <div class="slides-wrapper" :class="{'loading': isLoading}">
+    <div class="slides-wrapper" :class="{'loading': isLoading || !loaded}">
 
-        <button class="btn btn-primary btn-lg slides-prev" :disabled="start || isLoading" @click="changeSlide(-1)">
-            <i class="fa fa-angle-left"></i>
-        </button>
+        <template v-if="images.length">
 
-        <div class="slides">
-            <Slide :url="activeUrl" :number="number" :class="{'dimmed': isLoading}"/>
-        </div>
+            <button class="btn btn-primary btn-lg slides-prev" :disabled="start || isLoading" @click="changeSlide(-1)">
+                <i class="fa fa-angle-left"></i>
+            </button>
 
-        <button class="btn btn-primary btn-lg slides-next" :disabled="end || isLoading" @click="changeSlide(1)">
-            <i class="fa fa-angle-right"></i>
-        </button>
+            <div class="slides">
+                <Slide :url="activeUrl" :number="number" :class="{'dimmed': isLoading}"/>
+            </div>
+
+            <button class="btn btn-primary btn-lg slides-next" :disabled="end || isLoading" @click="changeSlide(1)">
+                <i class="fa fa-angle-right"></i>
+            </button>
+
+        </template>
 
     </div>
 </template>
@@ -27,7 +31,8 @@
         data() {
             return {
                 active: 0,
-                isLoading: false
+                isLoading: false,
+                loaded: false
             }
         },
         components: {
@@ -45,6 +50,15 @@
             },
             end() {
                 return this.active === this.images.length - 1;
+            }
+        },
+        watch: {
+            images(newValue, oldValue) {
+                if(oldValue.length === 0 && newValue.length !== 0) {
+                    //this.loaded = true;
+                    preloadImage(this.activeUrl)
+                        .then(url => this.loaded = true);
+                }
             }
         },
         methods: {

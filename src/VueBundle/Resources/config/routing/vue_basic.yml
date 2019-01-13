@@ -221,3 +221,7 @@ vue_basic_example54:
 vue_basic_example55:
     path:     /example-55
     defaults: { _controller: "VueBundle:VueBasic:example55"}
+
+vue_basic_example56:
+    path:     /example-56
+    defaults: { _controller: "VueBundle:VueBasic:example56"}
