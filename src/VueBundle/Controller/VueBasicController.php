@@ -689,5 +689,12 @@ EOF;
             'title' => 'Welcome Vue Basic - example57 - Dodanie obsługi routingu'
         ]);
     }
+
+    public function example58Action()
+    {
+        return $this->render('VueBundle:VueBasic:example58.html.twig',[
+            'title' => 'Welcome Vue Basic - example58 - Tworzenie produkcyjnego builda'
+        ]);
+    }
 }
 
