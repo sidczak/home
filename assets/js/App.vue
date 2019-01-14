@@ -2,7 +2,8 @@
     <div id="app">
         <HelloWorld/>
         <h3>Pokaz zdjęć</h3>
-        <Slideshow :images="images"/>
+        <!-- <Slideshow :images="images"/> -->
+        <router-view :images="images"></router-view>
     </div>
 </template>
 

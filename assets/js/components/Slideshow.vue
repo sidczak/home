@@ -1,7 +1,7 @@
 <template>
     <div class="slides-wrapper" :class="{'loading': isLoading || !loaded}">
 
-        <template v-if="images.length">
+        <template v-if="loaded">
 
             <button class="btn btn-primary btn-lg slides-prev" :disabled="start || isLoading" @click="changeSlide(-1)">
                 <i class="fa fa-angle-left"></i>
@@ -59,11 +59,16 @@
                     preloadImage(this.activeUrl)
                         .then(url => this.loaded = true);
                 }
+            },
+            "$route"() {
+                this.changeSlide(Number(this.$route.params.index), true);
+
             }
         },
         methods: {
-            changeSlide(dir) {
-                let index = this.active + dir;
+            changeSlide(dir, router = false) {
+                //let index = this.active + dir;
+                let index = router ? dir - 1  : this.active + dir;
                 let slide = this.images[index];
                 
                 if(slide !== undefined) {
@@ -73,6 +78,7 @@
                         .then(url => {
                             this.active = index;
                             this.isLoading = false;
+                            this.$router.push(`/slide/${index + 1}`);
                         });
                 }
             }

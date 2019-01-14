@@ -682,5 +682,12 @@ EOF;
             'title' => 'Welcome Vue Basic - example56 - Pobieranie danych z serwera'
         ]);
     }
+
+    public function example57Action()
+    {
+        return $this->render('VueBundle:VueBasic:example57.html.twig',[
+            'title' => 'Welcome Vue Basic - example57 - Dodanie obsługi routingu'
+        ]);
+    }
 }
 
