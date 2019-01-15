@@ -35,4 +35,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example2 - Bootstrap aplikacji z vue-cli'
         ]);
     }
+
+    /**
+     * @Route("/example3", name="vue_advanced_example3")
+     */
+    public function example3Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example3.html.twig',[
+            'title' => 'Welcome Vue Advanced - example3 - Jednoplikowe komponenty'
+        ]);
+    }
 }
