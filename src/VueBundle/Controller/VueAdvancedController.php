@@ -65,4 +65,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example5 - Komponenty funkcyjne'
         ]);
     }
+
+    /**
+     * @Route("/example6", name="vue_advanced_example6")
+     */
+    public function example6Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example6.html.twig',[
+            'title' => 'Welcome Vue Advanced - example6 - Korzystanie z mixin'
+        ]);
+    }
 }

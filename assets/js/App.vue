@@ -1,19 +1,22 @@
 <template>
     <div id="app">
         <HelloWorld headingTag="h5"/>
-        <HeadingGroup heading="Witaj świecie" subheading="Hello world!!!"/>
+        <User/>
+        <Product/>
     </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
-import HeadingGroup from './components/HeadingGroup'
+import User from './components/User'
+import Product from './components/Product'
 
 export default {
     name: 'App',
     components: {
         HelloWorld,
-        HeadingGroup
+        User,
+        Product
     }
 }
 </script>
