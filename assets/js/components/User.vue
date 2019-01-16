@@ -10,23 +10,24 @@
     
 </template>
 <script>
+    import {loading} from '../mixins/mixins'
     export default {
         name: "User",
+        mixins: [loading],
         data() {
             return {
-                user: null,
-                loading: false
+                user: null
             }
         },
         methods: {
             getData() {
-                this.loading = true;
+                this.toggleLoading();
                 setTimeout(() => {
                     this.user = {
                         name: "Jan Kowalski",
                         email: "jan@example.com"
                     };
-                    this.loading = false;
+                    this.toggleLoading();
                 },1000);
             }
         }

@@ -10,23 +10,24 @@
 	
 </template>
 <script>
+	import {loading} from '../mixins/mixins'
 	export default {
 		name: "Product",
+		mixins: [loading],
 		data() {
 			return {
-				product: null,
-				loading: false
+				product: null
 			}
 		},
         methods: {
             getData() {
-                this.loading = true;
+                this.toggleLoading();
                 setTimeout(() => {
                     this.product = {
                         name: "Żelazko z funkcją pary",
                         price: 210
                     };
-                    this.loading = false;
+                    this.toggleLoading();
                 },1000);
             }
         }

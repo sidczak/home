@@ -11,6 +11,90 @@
                     <h2>Example 6</h2>
 
                     <div id="app" v-cloak></div>
+                    <pre>
+                        <code>
+# assets/js/mixins/mixins.js
+
+export const loading = {
+    data() {
+        return {
+            loading: false
+        };
+    },
+    methods: {
+        toggleLoading() {
+            this.loading = !this.loading
+        }
+    }
+};
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+# assets/js/components/Product.vue
+&lt;template&gt;
+    &lt;div class="product-info"&gt;
+        &lt;h3>Dane produktu&lt;/h3&gt;
+        &lt;template v-if="product"&gt;
+            &lt;p>Nazwa produktu: { {product.name} }&lt;/p&gt;
+            &lt;p>Cena: { {product.price} } PLN&lt;/p&gt;
+        &lt;/template&gt;
+        &lt;button class="btn btn-primary" :class="{'loading': loading}" :disabled="loading" @click="getData">Wyświetl dane&lt;/button&gt;
+    &lt;/div&gt;
+    
+&lt;/template&gt;
+&lt;script&gt;
+    import {loading} from '../mixins/mixins'
+    export default {
+        name: "Product",
+        mixins: [loading],
+        data() {
+            return {
+                product: null
+            }
+        },
+        methods: {
+            getData() {
+                this.toggleLoading();
+                setTimeout(() => {
+                    this.product = {
+                        name: "Żelazko z funkcją pary",
+                        price: 210
+                    };
+                    this.toggleLoading();
+                },1000);
+            }
+        }
+    }
+    
+&lt;/script&gt;
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+# assets/js/App.vue
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;HelloWorld headingTag="h5"/&gt;
+        &lt;Product/&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import HelloWorld from './components/HelloWorld'
+import Product from './components/Product'
+
+export default {
+    name: 'App',
+    components: {
+        HelloWorld,
+        Product
+    }
+}
+&lt;/script&gt;
+
+                        </code>
+                    </pre>
                     
                 </div>
             </div>

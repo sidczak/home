@@ -2,6 +2,7 @@
     <div id="app">
         <HelloWorld headingTag="h5"/>
         <User/>
+        <hr/>
         <Product/>
     </div>
 </template>
