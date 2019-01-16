@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <HelloWorld/>
+        <HelloWorld headingTag="h5"/>
     </div>
 </template>
 

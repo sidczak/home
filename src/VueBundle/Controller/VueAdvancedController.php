@@ -45,4 +45,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example3 - Jednoplikowe komponenty'
         ]);
     }
+
+    /**
+     * @Route("/example4", name="vue_advanced_example4")
+     */
+    public function example4Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example4.html.twig',[
+            'title' => 'Welcome Vue Advanced - example4 - Funkcja renderująca vs. szablon'
+        ]);
+    }
 }
