@@ -1,23 +1,34 @@
 <template>
     <div id="app">
-        <HelloWorld headingTag="h5"/>
-        <User/>
-        <hr/>
-        <Product/>
+        <HelloWorld/>
+        <h3>Pokaz zdjęć</h3>
+        <!-- <Slideshow :images="images"/> -->
+        <router-view :images="images"></router-view>
     </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import User from './components/User'
-import Product from './components/Product'
+import axios from 'axios';
+import HelloWorld from './components/HelloWorld';
+import Slideshow from './components/Slideshow';
 
 export default {
     name: 'App',
     components: {
         HelloWorld,
-        User,
-        Product
+        Slideshow
+    },
+    props: {
+        endpoint: String
+    },
+    data() {
+        return {
+            images: []
+        };
+    },
+    created() {
+        axios.get(this.endpoint)
+            .then(res => this.images = res.data);
     }
 }
 </script>

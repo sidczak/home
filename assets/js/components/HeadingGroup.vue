@@ -1,17 +1,13 @@
-<template functional>
+<template>
     <div>
-        <h3>{{ props.heading }}</h3>
-        <p>{{ props.subheading }}</p>
+        <h3>{{ heading }}</h3>
+        <p>{{ subheading }}</p>
     </div>
 </template>
 <script>
     export default {
         name: "HeadingGroup",
-        // functional: true,
-        // props: ["heading", "subheading"],
-        // render: function(h, context) {
-        //     return h("div", [h("h3",context.props.heading),h("p",context.props.subheading)])
-        // }
+        props: ["heading", "subheading"]
     };
 </script>
 <style scoped>

@@ -8,7 +8,7 @@
             </button>
 
             <div class="slides">
-                <Slide :url="activeUrl" :number="number" :class="{'dimmed': isLoading}"/>
+                <EduSlide :url="activeUrl" :number="number" :class="{'dimmed': isLoading}"/>
             </div>
 
             <button class="btn btn-primary btn-lg slides-next" :disabled="end || isLoading" @click="changeSlide(1)">
@@ -21,7 +21,7 @@
 </template>
 <script>
     import {preloadImage} from "../helpers/helpers";
-    import Slide from "./Slide";
+    import EduSlide from "./EduSlide";
 
     export default {
         name: 'Slideshow',
@@ -36,7 +36,7 @@
             }
         },
         components: {
-            Slide
+            EduSlide
         },
         computed: {
             activeUrl() {
