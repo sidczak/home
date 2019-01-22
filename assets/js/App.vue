@@ -10,13 +10,13 @@
 <script>
 import axios from 'axios';
 import HelloWorld from './components/HelloWorld';
-import Slideshow from './components/Slideshow';
+import EduSlideshow from './components/EduSlideshow';
 
 export default {
     name: 'App',
     components: {
         HelloWorld,
-        Slideshow
+        EduSlideshow
     },
     props: {
         endpoint: String

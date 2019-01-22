@@ -1,4 +1,4 @@
-import Slideshow from "../components/Slideshow";
+import Slideshow from "../components/EduSlideshow";
 
 export default [
     { path: "/", redirect: "/slide/1" },

@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-	name: "Slide",
+	name: "EduSlide",
 	props: {
 		url: String,
 		number: String

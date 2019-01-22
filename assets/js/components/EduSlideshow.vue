@@ -24,7 +24,7 @@
     import EduSlide from "./EduSlide";
 
     export default {
-        name: 'Slideshow',
+        name: 'EduSlideshow',
         props: {
             images: Array
         },

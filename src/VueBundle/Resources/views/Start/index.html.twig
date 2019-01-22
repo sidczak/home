@@ -9,9 +9,11 @@
             <div class="col-md-12">
                 <div class="mt-3">
                     <h2>Lista kursów vue</h2>
+                    <h4><a href="{{ path('vue_basic_homepage') }}">Welcome Vue Basic</a></h4>
+                    <h4><a href="{{ path('vue_advanced_homepage') }}">Welcome Vue Advanced</a></h4>
+
+
                     <div id="app"></div>
-                    <h2><a href="{{ path('vue_basic_homepage') }}">Welcome Vue Basic</a></h2>
-                    <h2><a href="{{ path('vue_advanced_homepage') }}">Welcome Vue Advanced</a></h2>
                     <example-component myprop="I can pass props!" index=4></example-component>
                     <heading-group heading="xxxx" subheading="yyyy"></heading-group>
                     <edu-counter></edu-counter>
