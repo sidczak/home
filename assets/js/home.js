@@ -14,6 +14,7 @@ new Vue({
 import ExampleComponent from './components/ExampleComponent.vue';
 import HeadingGroup from './components/HeadingGroup.vue';
 import EduCounter from './edu-components/EduCounter.vue';
+import EduSlideshow from './edu-components/EduSlideshow.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -26,3 +27,4 @@ Vue.use(vueCustomElement);
 Vue.customElement('example-component', ExampleComponent);
 Vue.customElement('heading-group', HeadingGroup);
 Vue.customElement('edu-counter', EduCounter);
+Vue.customElement('edu-slideshow', EduSlideshow);

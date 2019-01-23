@@ -1,7 +1,7 @@
 <template>
-    <div class="slides-wrapper" :class="{'loading': isLoading || !loaded}">
+    <div class="slides-wrapper" :class="{'loading': isLoading}">
 
-        <template v-if="loaded">
+        <template>
 
             <button class="btn btn-primary btn-lg slides-prev" :disabled="start || isLoading" @click="changeSlide(-1)">
                 <i class="fa fa-angle-left"></i>
@@ -25,14 +25,21 @@
 
     export default {
         name: 'EduSlideshow',
-        props: {
-            images: Array
-        },
         data() {
             return {
                 active: 0,
                 isLoading: false,
-                loaded: false
+                images: [
+                    {
+                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-1.jpg"
+                    },
+                    {
+                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-2.jpg"
+                    },
+                    {
+                        "url": "http://code.eduweb.pl/kurs-vue/media/images/image-3.jpg"
+                    }
+                ]
             }
         },
         components: {
@@ -52,25 +59,12 @@
                 return this.active === this.images.length - 1;
             }
         },
-        watch: {
-            images(newValue, oldValue) {
-                if(oldValue.length === 0 && newValue.length !== 0) {
-                    //this.loaded = true;
-                    preloadImage(this.activeUrl)
-                        .then(url => this.loaded = true);
-                }
-            },
-            "$route"() {
-                this.changeSlide(Number(this.$route.params.index), true);
-
-            }
-        },
         methods: {
-            changeSlide(dir, router = false) {
-                //let index = this.active + dir;
-                let index = router ? dir - 1  : this.active + dir;
+            changeSlide(dir) {
+
+                let index = this.active + dir;
                 let slide = this.images[index];
-                
+
                 if(slide !== undefined) {
                     //this.active = index;
                     this.isLoading = true;
@@ -78,9 +72,10 @@
                         .then(url => {
                             this.active = index;
                             this.isLoading = false;
-                            this.$router.push(`/slide/${index + 1}`);
+                            //this.$router.push(`/slide/${index + 1}`);
                         });
                 }
+
             }
         }
     }
