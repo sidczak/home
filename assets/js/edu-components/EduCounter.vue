@@ -1,6 +1,6 @@
 <template>
     <div>
-<!--         <form action="#">
+        <form action="#">
             <div class="form-group row">
                 <div class="col-2">
                     <label class="form-label">Wybierz wartość startową:</label>
@@ -11,7 +11,7 @@
                     </select>
                 </div>
             </div>
-        </form> -->
+        </form>
         <div class="row justify-content-center">
             <div class="col-8 text-center">
                 <div class="alert alert-primary" v-show="!inProgress">Naciśnij <strong>Start</strong> aby rozpocząć odliczanie.</div>
@@ -24,12 +24,23 @@
 <script>
     export default {
         name: "EduCounter",
-        props: ["initValue"],
+        //props: ["initValue"],
+        props: {
+            initValue: {
+                type: Number,
+                default: 10
+            }
+        },
         data: function() {
             return {
                 counter: this.initValue,
                 inProgress: false
             };
+        },
+        watch: {
+            initValue: function(newValue) {
+                this.counter = newValue;
+            }
         },
         methods: {
             start: function() {
