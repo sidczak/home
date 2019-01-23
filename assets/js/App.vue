@@ -10,7 +10,7 @@
 <script>
 import axios from 'axios';
 import HelloWorld from './components/HelloWorld';
-import EduSlideshow from './components/EduSlideshow';
+import EduSlideshow from './edu-components/EduSlideshow';
 
 export default {
     name: 'App',

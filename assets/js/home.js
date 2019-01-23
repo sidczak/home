@@ -29,7 +29,7 @@ new Vue({
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import HeadingGroup from './components/HeadingGroup.vue';
-import EduCounter from './components/EduCounter.vue';
+import EduCounter from './edu-components/EduCounter.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
