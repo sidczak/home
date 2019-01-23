@@ -7,7 +7,7 @@
         props: ["myprop", "index"],
 	    data () {
 	        return {
-	            heading: "xHello World"
+	            heading: "Hello World"
 	        }
 	    }
     };

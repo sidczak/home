@@ -6,10 +6,10 @@ import '../css/home.scss';
 
 import App from './App';
 
-// new Vue({
-//     el: '#app',
-//     render: h => h(App)
-// });
+new Vue({
+    el: '#app',
+    render: h => h(App)
+});
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import HeadingGroup from './components/HeadingGroup.vue';

@@ -12,7 +12,7 @@
 <script>
 	import {loading} from '../mixins/mixins'
 	export default {
-		name: "Product",
+		name: "EduProduct",
 		mixins: [loading],
 		data() {
 			return {
