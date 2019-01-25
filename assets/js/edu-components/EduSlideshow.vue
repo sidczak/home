@@ -20,11 +20,15 @@
     </div>
 </template>
 <script>
+    import axios from "axios"
     import {preloadImage} from "../helpers/helpers";
     import EduSlide from "./EduSlide";
 
     export default {
         name: 'EduSlideshow',
+        props: {
+            endpoint: String
+        },
         data() {
             return {
                 active: 0,
@@ -77,6 +81,11 @@
                 }
 
             }
+        },
+        created() {
+            //axios.get("http://code.eduweb.pl/kurs-vue/images/?wait=1")
+            axios.get(this.endpoint)
+                .then(res => this.images = res.data);
         }
     }
 </script>
