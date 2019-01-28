@@ -13,6 +13,55 @@
                     <div id="app" v-cloak></div>
 
                     <pre>
+                        <code>
+assets/js/home.js
+import Vue from "vue";
+import App from "./App";
+
+Vue.config.productionTip = false;
+
+new Vue({
+    el: "#app",
+    render: h => h(App)
+});
+
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+assets/js/App.vue
+&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;img src="./assets/logo.png"&gt;
+    &lt;HelloWorld/&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import HelloWorld from './components/HelloWorld'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+&lt;/style&gt;
+                        </code>
+                    </pre>
+
+                    <pre>
                     	<code>
 assets/js/components/HelloWorld.vue
 &lt;template&gt;
@@ -32,7 +81,7 @@ export default {
 }
 &lt;/script&gt;
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+&lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
 &lt;style scoped&gt;
 &lt;/style&gt;
                     	</code>
