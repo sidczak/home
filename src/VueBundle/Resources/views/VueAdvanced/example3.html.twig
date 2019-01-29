@@ -9,9 +9,74 @@
             <div class="col-md-12">
                 <div class="mt-3">
                     <h2>Example 3</h2>
+                    <edu-hello-world heading="Welcome" subheading="Welcome Vue"></edu-hello-world>
+                    <h4 class="mt-5">Budowa komponentu przy użyciu vueCustomElement</h4>
+                    <pre>
+                        <code>
+&lt;edu-hello-world heading="Welcome" subheading="Welcome Vue"&gt;&lt;/edu-hello-world&gt;
+                        </code>
+                    </pre>
 
-                    <div id="app" v-cloak></div>
+                    <pre>
+                        <code>
+// assets/js/home.js
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import vueCustomElement from 'vue-custom-element';
 
+import '../css/home.scss';
+
+// import App from './App';
+
+// new Vue({
+//     el: '#app',
+//     render: h => h(App)
+// });
+
+import ExampleComponent from './components/ExampleComponent.vue';
+import EduHelloWorld from './edu-components/EduHelloWorld.vue';
+
+// Vue.config.ignoredElements = [
+//   'example-component'
+//   'edu-hello-world'
+// ];
+
+Vue.use(vueCustomElement);
+
+Vue.customElement('example-component', ExampleComponent);
+Vue.customElement('edu-hello-world', EduHelloWorld);
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/edu-components/EduHelloWorld.vue
+&lt;template&gt;
+    &lt;div class="hello"&gt;
+        &lt;h2>{ { msg } }&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: 'EduHelloWorld',
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App'
+        }
+    }
+};
+&lt;/script&gt;
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+&lt;style scoped&gt;
+    .hello {
+        border: 1px solid blue;
+    }
+&lt;/style&gt;
+                        </code>
+                    </pre>
+
+                    <h4>Budowa komponentu z użyciem App</h4>
                     <pre>
                         <code>
 assets/js/home.js
@@ -24,7 +89,6 @@ new Vue({
     el: "#app",
     render: h => h(App)
 });
-
                         </code>
                     </pre>
                     <pre>
@@ -60,7 +124,6 @@ export default {
 &lt;/style&gt;
                         </code>
                     </pre>
-
                     <pre>
                     	<code>
 assets/js/components/HelloWorld.vue

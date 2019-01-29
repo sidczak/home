@@ -6,7 +6,7 @@
 </template>
 <script>
     export default {
-        name: "HeadingGroup",
+        name: "EduHeadingGroup",
         props: ["heading", "subheading"]
     };
 </script>
