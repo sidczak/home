@@ -1,4 +1,4 @@
-<template>
+<template functional>
     <div>
         <h3>{{ heading }}</h3>
         <p>{{ subheading }}</p>

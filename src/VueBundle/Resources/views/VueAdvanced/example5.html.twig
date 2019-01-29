@@ -12,6 +12,72 @@
 
                     <edu-heading-group heading="Welcome" subheading="Welcome Vue"></edu-heading-group>
 
+                    <h4 class="mt-5">Budowa komponentu przy użyciu vueCustomElement</h4>
+                    <div class="alert alert-success">W komponentach funkcyjnych nie potrzebujemy "props" ani "export default". Komponent funkcyjny tworzymy dodając &lt;template functional&gt;</div>
+                    <pre>
+                        <code>
+&lt;edu-heading-group heading="Welcome" subheading="Welcome Vue"&gt;&lt;/edu-heading-group&gt;
+                        </code>
+                    </pre>
+
+                    <pre>
+                        <code>
+// assets/js/home.js
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import vueCustomElement from 'vue-custom-element';
+
+import '../css/home.scss';
+
+// import App from './App';
+
+// new Vue({
+//     el: '#app',
+//     render: h => h(App)
+// });
+
+import ExampleComponent from './components/ExampleComponent.vue';
+
+import EduHelloWorld from './edu-components/EduHelloWorld.vue';
+import EduHeadingGroup from './edu-components/EduHeadingGroup.vue';
+
+// Vue.config.ignoredElements = [
+//   'example-component'
+//   'edu-counter'
+// ];
+
+Vue.use(vueCustomElement);
+
+Vue.customElement('example-component', ExampleComponent);
+
+Vue.customElement('edu-hello-world', EduHelloWorld);
+Vue.customElement('edu-heading-group', EduHeadingGroup);
+                        </code>
+                    </pre>
+                    <div class="alert alert-success">W komponentach funkcyjnych nie potrzebujemy "props" ani "export default". Komponent funkcyjny tworzymy dodając &lt;template functional&gt;</div>
+                    <pre>
+                        <code>
+// assets/js/edu-components/EduHeadingGroup.vue
+&lt;template functional&gt;
+    &lt;div&gt;
+        &lt;h3&gt;{ { props.heading } }&lt;/h3&gt;
+        &lt;p&gt;{ { props.subheading } }&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default {
+        name: "EduHeadingGroup",
+        //props: ["heading", "subheading"]
+    };
+&lt;/script&gt;
+&lt;style scoped&gt;
+    h3 {
+        margin-bottom: 50px;
+    }
+&lt;/style&gt;
+                        </code>
+                    </pre>
+                    <h4>Budowa komponentu z użyciem App</h4>
                     <pre>
                         <code>
 # assets/js/App.vue
