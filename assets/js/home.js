@@ -17,6 +17,8 @@ import EduSlideshow from './edu-components/EduSlideshow.vue';
 
 import EduHelloWorld from './edu-components/EduHelloWorld.vue';
 import EduHeadingGroup from './edu-components/EduHeadingGroup.vue';
+import EduUser from './edu-components/EduUser.vue';
+import EduProduct from './edu-components/EduProduct.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -31,3 +33,5 @@ Vue.customElement('edu-slideshow', EduSlideshow);
 
 Vue.customElement('edu-hello-world', EduHelloWorld);
 Vue.customElement('edu-heading-group', EduHeadingGroup);
+Vue.customElement('edu-user', EduUser);
+Vue.customElement('edu-product', EduProduct);

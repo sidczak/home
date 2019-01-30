@@ -10,11 +10,47 @@
                 <div class="mt-3">
                     <h2>Example 6</h2>
 
-                    <div id="app" v-cloak></div>
+                    <edu-user></edu-user>
+                    <edu-product></edu-product>
                     <pre>
                         <code>
-# assets/js/mixins/mixins.js
+&lt;edu-user&gt;&lt;/edu-user&gt;
+&lt;edu-product&gt;&lt;/edu-product&gt;
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/home.js
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import vueCustomElement from 'vue-custom-element';
 
+import '../css/home.scss';
+
+// import App from './App';
+
+// new Vue({
+//     el: '#app',
+//     render: h => h(App)
+// });
+
+import EduUser from './edu-components/EduUser.vue';
+import EduProduct from './edu-components/EduProduct.vue';
+
+// Vue.config.ignoredElements = [
+//   'example-component'
+//   'edu-counter'
+// ];
+
+Vue.use(vueCustomElement);
+
+Vue.customElement('edu-user', EduUser);
+Vue.customElement('edu-product', EduProduct);
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/mixins/mixins.js
 export const loading = {
     data() {
         return {
@@ -29,6 +65,48 @@ export const loading = {
 };
                         </code>
                     </pre>
+                    <pre>
+                        <code>
+// assets/js/edu-components/EduProduct.vue
+&lt;template&gt;
+    &lt;div class="product-info"&gt;
+        &lt;h3&gt;Dane produktu&lt;/h3&gt;
+        &lt;template v-if="product"&gt;
+            &lt;p&gt;Nazwa produktu: { {product.name} }&lt;/p&gt;
+            &lt;p&gt;Cena: { {product.price} } PLN&lt;/p&gt;
+        &lt;/template&gt;
+        &lt;button class="btn btn-primary" :class="{'loading': loading}" :disabled="loading" @click="getData"&gt;Wyświetl dane&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    import {loading} from '../mixins/mixins'
+    export default {
+        name: "EduProduct",
+        mixins: [loading],
+        data() {
+            return {
+                product: null
+            }
+        },
+        methods: {
+            getData() {
+                this.toggleLoading();
+                setTimeout(() => {
+                    this.product = {
+                        name: "Żelazko z funkcją pary",
+                        price: 210
+                    };
+                    this.toggleLoading();
+                },1000);
+            }
+        }
+    }
+    
+&lt;/script&gt;
+                        </code>
+                    </pre>
+                    <hr/>
+                    <h4>Budowa komponentu z użyciem App</h4>
                     <pre>
                         <code>
 # assets/js/components/Product.vue

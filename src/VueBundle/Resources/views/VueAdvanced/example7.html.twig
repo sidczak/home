@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 7</h2>
+                    <p>Vue Basic: <a href="{{ path('vue_basic_example36') }}">Example 36 - Komunikacja pomiędzy komponentami w górę</a></p>
+                    <pre>
+                        <code>
+&lt;edu-counter&gt;&lt;/edu-counter&gt;
+&lt;edu-counter init-value="8"&gt;&lt;/edu-counter&gt;
+                        </code>
+                    </pre>
+                    <edu-counter init-value="8"></edu-counter>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+{% endblock %}
+{% block javascripts %}{% endblock %}
