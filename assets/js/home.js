@@ -5,9 +5,11 @@ import vueCustomElement from 'vue-custom-element';
 import '../css/home.scss';
 
 import App from './App';
+import store from './store/store';
 
 new Vue({
     el: '#app',
+    store,
     render: h => h(App)
 });
 

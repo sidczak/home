@@ -14,7 +14,88 @@
 ➜  home git:(master) ✗ npm install vuex
                         </code>
                     </pre>
-                    
+                    <pre>
+                        <code>
+// assets/js/home.js
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import vueCustomElement from 'vue-custom-element';
+
+import '../css/home.scss';
+
+import App from './App';
+import store from './store/store'; // <-- dodanie store
+
+new Vue({
+    el: '#app',
+    store, // <-- dodanie store
+    render: h => h(App)
+});
+
+import ExampleComponent from './components/ExampleComponent.vue';
+import EduCounter from './edu-components/EduCounter.vue';
+...
+
+// Vue.config.ignoredElements = [
+//   'example-component'
+//   'edu-counter'
+// ];
+
+Vue.use(vueCustomElement);
+
+Vue.customElement('example-component', ExampleComponent);
+Vue.customElement('edu-counter', EduCounter);
+...
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/store/store.js
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+    state: {
+        //message: "Hello world!"
+        users: require("../data/users")
+    }
+});
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/data/users.json
+[
+    {
+        "name": "Jan Kowalski",
+        "age": 31,
+        "gender": "male"
+    },
+    {
+        "name": "Mateusz Nowak",
+        "age": 26,
+        "gender": "male"
+    },
+    {
+        "name": "Anna Zielińska",
+        "age": 40,
+        "gender": "female"
+    },
+    {
+        "name": "Marzena Tomaczyk",
+        "age": 39,
+        "gender": "female"
+    },
+    {
+        "name": "Witold Moliński",
+        "age": 18,
+        "gender": "male"
+    }
+]
+                        </code>
+                    </pre>
                 </div>
             </div>
         </div>

@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Jan Kowalski",
+        "age": 31,
+        "gender": "male"
+    },
+    {
+        "name": "Mateusz Nowak",
+        "age": 26,
+        "gender": "male"
+    },
+    {
+        "name": "Anna Zielińska",
+        "age": 40,
+        "gender": "female"
+    },
+    {
+        "name": "Marzena Tomaczyk",
+        "age": 39,
+        "gender": "female"
+    },
+    {
+        "name": "Witold Moliński",
+        "age": 18,
+        "gender": "male"
+    }
+]
