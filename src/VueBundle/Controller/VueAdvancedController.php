@@ -95,4 +95,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example10 - Pierwsze kroki z VueX'
         ]);
     }
+
+    /**
+     * @Route("/example11", name="vue_advanced_example11")
+     */
+    public function example11Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example11.html.twig',[
+            'title' => 'Welcome Vue Advanced - example11 - Pobieranie danych'
+        ]);
+    }
 }

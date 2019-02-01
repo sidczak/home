@@ -1,26 +1,31 @@
 [
     {
-        "name": "Jan Kowalski",
+        "firstName": "Jan",
+        "lastName": "Kowalski",
         "age": 31,
         "gender": "male"
     },
     {
-        "name": "Mateusz Nowak",
+        "firstName": "Mateusz",
+        "lastName": "Nowak",
         "age": 26,
         "gender": "male"
     },
     {
-        "name": "Anna Zielińska",
+        "firstName": "Anna",
+        "lastName": "Zielińska",
         "age": 40,
         "gender": "female"
     },
     {
-        "name": "Marzena Tomaczyk",
+        "firstName": "Marzena",
+        "lastName": "Tomaczyk",
         "age": 39,
         "gender": "female"
     },
     {
-        "name": "Witold Moliński",
+        "firstName": "Witold ",
+        "lastName": "Moliński",
         "age": 18,
         "gender": "male"
     }
