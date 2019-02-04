@@ -75,6 +75,59 @@
                     </pre>
                     <pre>
                         <code>
+// assets/js/edu-components/EduUserItem.vue
+&lt;template&gt;
+    &lt;tr&gt;
+        &lt;td&gt;{ { index + 1 } }.&lt;/td&gt;
+        &lt;td&gt;
+            &lt;template v-if="editMode"&gt;
+                &lt;div class="form-row"&gt;
+                    &lt;div class="col"&gt;
+                        &lt;input type="text" class="form-control" placeholder="First name" v-model.lazy="user.firstName"&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col"&gt;
+                        &lt;input type="text" class="form-control" placeholder="Last name" v-model.lazy="user.lastName"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+            &lt;template v-else&gt;
+                { { user.firstName } } { { user.lastName } }
+            &lt;/template&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;template v-if="editMode"&gt;
+                &lt;div class="form-row"&gt;
+                    &lt;div class="col"&gt;
+                        &lt;input type="number" class="form-control" placeholder="Age" v-model.lazy="user.age"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+            &lt;template v-else&gt;
+                { { user.age } }
+            &lt;/template&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;button class="btn btn-primary" @click="editMode = !editMode"&gt;
+                &lt;i class="fa" :class="{'fa-pencil': !editMode, 'fa-check': editMode}"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default {
+        name: "EduUsersItems",
+        props: ["user", "index"],
+        data: function() {
+            return {
+                editMode: false
+            };
+        }
+    }
+&lt;/script&gt;
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
 // assets/js/store/store.js
 import Vue from 'vue';
 import Vuex from 'vuex';

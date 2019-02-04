@@ -8,6 +8,7 @@
                         <th>Lp.</th>
                         <th>Imię i nazwisko</th>
                         <th>Wiek</th>
+                        <th>Edytuj</th>
                     </tr>
                 </thead>
                 <tbody>
