@@ -28,10 +28,9 @@
                 </thead>
                 <tbody>
                     <!-- <EduUserItem v-for="(user, index) in $store.state.users" :user="user" :index="index" :key="user.id"></EduUserItem> -->
-                    <EduUserItem v-for="(user, index) in users" :user="user" :index="index" :key="user.id"></EduUserItem>
+                    <EduUserItem v-for="(user, index) in data" :user="user" :index="index" :key="user.id"></EduUserItem>
                 </tbody>
             </table>
-            
         </div>
         <ol>
             <!-- <li v-for="user in $store.state.users">{{ user.firstName }} {{ user.lastName }} - {{ user.age }}</li> -->
@@ -40,6 +39,7 @@
     </div>
 </template>
 <script>
+    import { mapState, mapGetters } from 'vuex';
     import EduUserItem from './EduUserItem';
     import store from '../store/store';
     
@@ -50,13 +50,15 @@
             EduUserItem
         },
         computed: {
-            users() {
+            ...mapState(["users"]),
+            ...mapGetters(["female", "male"]),
+            data() {
                 if(this.gender === "female") {
-                    return this.$store.getters.female;
+                    return this.female;
                 } else if(this.gender === "male") {
-                    return this.$store.getters.male;
+                    return this.male;
                 } else {
-                    return this.$store.state.users;
+                    return this.users;
                 }
             }
         },

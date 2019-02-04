@@ -5,10 +5,10 @@
             <template v-if="editMode">
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="First name" :value="user.firstName" @change="update($event, 'firstName')">
+                        <input type="text" class="form-control" placeholder="First name" :value="user.firstName" @change="updateUser($event, 'firstName')">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name" :value="user.lastName" @change="update($event, 'lastName')">
+                        <input type="text" class="form-control" placeholder="Last name" :value="user.lastName" @change="updateUser($event, 'lastName')">
                     </div>
                 </div>
             </template>
@@ -20,7 +20,7 @@
             <template v-if="editMode">
                 <div class="form-row">
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="Age" :value="user.age" @change.number="update($event, 'age')">
+                        <input type="number" class="form-control" placeholder="Age" :value="user.age" @change.number="updateUser($event, 'age')">
                     </div>
                 </div>
             </template>
@@ -34,13 +34,14 @@
             </button>
         </td>
         <td>
-            <button class="btn btn-danger" @click="remove(user.id)">
+            <button class="btn btn-danger" @click="removeUser(user.id)">
                 <i class="fa fa-trash"></i>
             </button>
         </td>
     </tr>
 </template>
 <script>
+    import { mapMutations, mapActions } from 'vuex';
     export default {
         name: "EduUsersItems",
         props: ["user", "index"],
@@ -50,15 +51,17 @@
             };
         },
         methods: {
-            update(e, type) {
-                this.$store.commit("update", {
+            ...mapMutations(["update"]),
+            ...mapActions(["remove"]),
+            updateUser(e, type) {
+                this.update({
                     value: e.target.value,
                     type,
                     id: this.user.id
                 });
             },
-            remove(id) {
-                this.$store.dispatch("remove", { id });
+            removeUser(id) {
+                this.remove({ id });
             }
         }
     }
