@@ -23,6 +23,7 @@
                         <th>Imię i nazwisko</th>
                         <th>Wiek</th>
                         <th>Edytuj</th>
+                        <th>Usuń</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -33,6 +33,11 @@
                 <i class="fa" :class="{'fa-pencil': !editMode, 'fa-check': editMode}"></i>
             </button>
         </td>
+        <td>
+            <button class="btn btn-danger" @click="remove(user.id)">
+                <i class="fa fa-trash"></i>
+            </button>
+        </td>
     </tr>
 </template>
 <script>
@@ -51,6 +56,9 @@
                     type,
                     id: this.user.id
                 });
+            },
+            remove(id) {
+                this.$store.dispatch("remove", { id });
             }
         }
     }

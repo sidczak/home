@@ -21,6 +21,20 @@ export default new Vuex.Store({
         update(state, payload) {
             const index = _.findIndex(state.users, ["id", payload.id]);
             state.users[index][payload.type] = payload.value;
+        },
+        removeUser(state, payload) {
+            const index = _.findIndex(state.users, ["id", payload.id]);
+            state.users.splice(index, 1);
+        }
+    },
+    actions: {
+        //remove(context, payload) {
+        remove({commit,state}, payload) {
+            setTimeout(() => {
+                //context.commit("remove", payload);
+                commit("removeUser", payload);
+            }, 2000);
+
         }
     }
 });
