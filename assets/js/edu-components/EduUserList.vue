@@ -1,6 +1,20 @@
 <template>
     <div>
         <h3>Użytkownicy</h3>
+        <form action="#">
+            <div class="form-group row">
+                <div class="col-2">
+                    <label class="form-label">Płeć:</label>
+                </div>
+                <div class="col">
+                    <select class="form-control" v-model="gender">
+                        <option value="">wszyscy</option>
+                        <option value="male">mężczyźni</option>
+                        <option value="female">kobiety</option>
+                    </select>
+                </div>
+            </div>
+        </form>
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead>
@@ -36,7 +50,18 @@
         },
         computed: {
             users() {
-                return this.$store.state.users;
+                if(this.gender === "female") {
+                    return this.$store.getters.female;
+                } else if(this.gender === "male") {
+                    return this.$store.getters.male;
+                } else {
+                    return this.$store.state.users;
+                }
+            }
+        },
+        data() {
+            return {
+                gender: ""
             }
         },
         // data() {
