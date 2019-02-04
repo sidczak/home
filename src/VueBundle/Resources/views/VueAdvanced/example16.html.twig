@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 16</h2>
+                    <edu-user-list></edu-user-list>
+                    <pre>
+                        <code>
+// assets/js/store/store.js
+import Vue from 'vue';
+import Vuex from 'vuex';
+import _ from 'lodash';
+import getters from './getters';
+import mutations from './mutations';
+import actions from './actions';
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+    state: {
+        //message: "Hello world!"
+        users: require("../data/users")
+    },
+    getters,
+    mutations,
+    actions
+});
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/store/getters.js
+export default {
+    female(state) {
+        return state.users.filter(user => user.gender === "female");
+    },
+    male(state) {
+        return state.users.filter(user => user.gender === "male");
+    }
+};
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/store/mutations.js
+export default {
+    update(state, payload) {
+        const index = _.findIndex(state.users, ["id", payload.id]);
+        state.users[index][payload.type] = payload.value;
+    },
+    removeUser(state, payload) {
+        const index = _.findIndex(state.users, ["id", payload.id]);
+        state.users.splice(index, 1);
+    }
+};
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/store/actions.js
+export default {
+    //remove(context, payload) {
+    remove({commit,state}, payload) {
+        setTimeout(() => {
+            //context.commit("remove", payload);
+            commit("removeUser", payload);
+        }, 2000);
+
+    }
+};
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}

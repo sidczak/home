@@ -145,4 +145,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example15 - Funkcje pomocnicze'
         ]);
     }
+
+    /**
+     * @Route("/example16", name="vue_advanced_example16")
+     */
+    public function example16Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example16.html.twig',[
+            'title' => 'Welcome Vue Advanced - example16 - Lepsza organizacja kodu'
+        ]);
+    }
 }
