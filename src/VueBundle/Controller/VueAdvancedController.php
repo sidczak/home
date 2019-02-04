@@ -115,4 +115,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example12 - Gettery'
         ]);
     }
+
+    /**
+     * @Route("/example13", name="vue_advanced_example13")
+     */
+    public function example13Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example13.html.twig',[
+            'title' => 'Welcome Vue Advanced - example13 - Mutacje'
+        ]);
+    }
 }
