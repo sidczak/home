@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 18</h2>
+                    <pre>
+                        <code>
+➜  home git:(master) npm install vue-router
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+// assets/js/home.js
+import Vue from 'vue';
+import VueRouter from 'vue-router'; <-- dodanie vue-router
+import vueCustomElement from 'vue-custom-element';
+
+import '../css/home.scss';
+
+import App from './App';
+import store from './store/store';
+
+Vue.use(VueRouter); <-- dodanie vue-router
+
+new Vue({
+    el: '#app',
+    store,
+    render: h => h(App)
+});
+                        </code>
+                    </pre>
+                    <h4>Komponenty będziemy oplatać znacznikiem</h4>
+                    <pre>
+                        <code>
+&lt;router-view&gt; komponent &lt;/router-view&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}

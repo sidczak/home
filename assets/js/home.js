@@ -7,6 +7,8 @@ import '../css/home.scss';
 import App from './App';
 import store from './store/store';
 
+Vue.use(VueRouter);
+
 new Vue({
     el: '#app',
     store,
