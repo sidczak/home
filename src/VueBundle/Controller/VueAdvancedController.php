@@ -175,4 +175,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example19 - Tworzenie tabeli routingu'
         ]);
     }
+
+    /**
+     * @Route("/example20", name="vue_advanced_example20")
+     */
+    public function example20Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example20.html.twig',[
+            'title' => 'Welcome Vue Advanced - example20 - Generowanie odnośników'
+        ]);
+    }
 }
