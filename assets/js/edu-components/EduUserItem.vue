@@ -29,6 +29,11 @@
             </template>
         </td>
         <td>
+            <router-link :to="'/edu-user-details/' + user.id" class="btn btn-primary">
+                <i class="fa fa-search"></i>
+            </router-link>
+        </td>
+        <td>
             <button class="btn btn-primary" @click="editMode = !editMode">
                 <i class="fa" :class="{'fa-pencil': !editMode, 'fa-check': editMode}"></i>
             </button>

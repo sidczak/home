@@ -22,6 +22,7 @@
                         <th>Lp.</th>
                         <th>Imię i nazwisko</th>
                         <th>Wiek</th>
+                        <th>Szczegóły</th>
                         <th>Edytuj</th>
                         <th>Usuń</th>
                     </tr>

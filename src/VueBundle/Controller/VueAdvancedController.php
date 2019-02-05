@@ -185,4 +185,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example20 - Generowanie odnośników'
         ]);
     }
+
+    /**
+     * @Route("/example21", name="vue_advanced_example21")
+     */
+    public function example21Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example21.html.twig',[
+            'title' => 'Welcome Vue Advanced - example21 - Dynamiczne parametry'
+        ]);
+    }
 }
