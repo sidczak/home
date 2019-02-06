@@ -195,4 +195,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example21 - Dynamiczne parametry'
         ]);
     }
+
+    /**
+     * @Route("/example22", name="vue_advanced_example22")
+     */
+    public function example22Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example22.html.twig',[
+            'title' => 'Welcome Vue Advanced - example22 - Zagnieżdżone ścieżki'
+        ]);
+    }
 }

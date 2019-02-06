@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 22</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <edu-app></edu-app>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <pre>
+                    <code>
+// assets/js/edu-components/EduUserItem.vue
+&lt;td&gt;
+    &lt;button class="btn btn-primary" @click="editMode = !editMode"&gt;
+        &lt;i class="fa" :class="{'fa-pencil': !editMode, 'fa-check': editMode}"&gt;&lt;/i&gt; Szybka
+    &lt;/button&gt;
+    &lt;router-link :to="'/edu-user-details/' + user.id + '/edit'" class="btn btn-primary"&gt;
+        &lt;i class="fa fa-pencil"&gt;&lt;/i&gt;
+    &lt;/router-link&gt;
+&lt;/td&gt;
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// assets/js/router/routes.js
+import HelloWorld from '../components/HelloWorld';
+import EduUserList from '../edu-components/EduUserList';
+import EduUserDetails from '../edu-components/EduUserDetails';
+import EduUserEdit from '../edu-components/EduUserEdit';
+
+export default [
+    { path: "/", component: HelloWorld },
+    { path: "/edu-user-list", component: EduUserList },
+    //{ path: "/edu-user-details/:id", component: EduUserDetails },
+    //{ path: "/edu-user-details/:id/edit", component: EduUserDetails }
+    { path: "/edu-user-details/:id", component: EduUserDetails, children: [
+        { path: "edit", component: EduUserEdit }
+    ]}
+];
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// assets/js/edu-components/EduUserDetails.vue
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;h3&gt;Szczegóły użytkownika&lt;/h3&gt;
+        &lt;h4&gt;{ { user.firstName } } { { user.lastName } } ({ { user.id } })&lt;/h4&gt;
+        &lt;p&gt;Wiek: { { user.age } }&lt;/p&gt;
+        &lt;p&gt;Płeć: { { user.gender } }&lt;/p&gt;
+        &lt;hr/&gt;
+        &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;/div&gt;
+    
+&lt;/template&gt;
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// assets/js/edu-components/EduUserEdit.vue
+&lt;template&gt;
+
+    &lt;div&gt;
+
+        &lt;h3&gt;Edycja użytkownika&lt;/h3&gt;
+
+        &lt;div class="form-group col-6"&gt;
+            &lt;label class="form-label"&gt;Imię&lt;/label&gt;
+            &lt;input type="text" class="form-control" :value="user.firstName" @change="updateUser($event, 'firstName')"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group col-6"&gt;
+            &lt;label class="form-label"&gt;Nazwisko&lt;/label&gt;
+            &lt;input type="text" class="form-control" :value="user.lastName" @change="updateUser($event, 'lastName')"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group col-6"&gt;
+            &lt;label class="form-label"&gt;Wiek&lt;/label&gt;
+            &lt;input type="number" class="form-control" :value="user.age" @change="updateUser($event, 'age')" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group col-6"&gt;
+            &lt;label class="form-label"&gt;Płeć&lt;/label&gt;
+            &lt;select class="form-control" @change="updateUser($event, 'gender')"&gt;
+                &lt;option value="male" :selected="user.gender == 'male'"&gt;męska&lt;/option&gt;
+                &lt;option value="female" :selected="user.gender == 'female'"&gt;żeńska&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+&lt;/template&gt;
+
+&lt;script&gt;
+
+    import { mapMutations } from "vuex";
+
+    export default {
+        name: "EduUserEdit",
+        computed: {
+            user() {
+                return this.$store.getters.user( Number(this.$route.params.id) )
+            }
+        },
+        methods: {
+            ...mapMutations(["update"]),
+            updateUser(e, type) {
+                this.update({
+                    id: this.user.id,
+                    type: type,
+                    value: e.target.value
+                })
+            },
+        }
+    };
+
+&lt;/script&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
