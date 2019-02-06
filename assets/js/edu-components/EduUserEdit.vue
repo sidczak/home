@@ -26,7 +26,11 @@
                 <option value="female" :selected="user.gender == 'female'">żeńska</option>
             </select>
         </div>
-
+        <hr/>
+        <!-- <button class="btn btn-primary" @click="$router.go(-1)">Powrót</button> -->
+        <!-- <button class="btn btn-primary" @click="$router.push('/edu-user-list')">Powrót</button> -->
+        <button class="btn btn-primary" @click="$router.push({ path: '/edu-user-list' })">Powrót</button>
+        <!-- <button class="btn btn-primary" @click="$router.push({ path: '/edu-user-list', query: { hello: 'Witam' } })">Powrót</button> -->
     </div>
 
 </template>

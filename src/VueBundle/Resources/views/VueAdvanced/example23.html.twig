@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 23</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <edu-app></edu-app>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <pre>
+                    <code>
+// assets/js/edu-components/EduUserItem.vue
+&lt;button class="btn btn-primary" @click="$router.go(-1)"&gt;Powrót&lt;/button&gt;
+&lt;button class="btn btn-primary" @click="$router.push('/edu-user-list')"&gt;Powrót&lt;/button&gt;
+&lt;button class="btn btn-primary" @click="$router.push({ path: '/edu-user-list' })"&gt;Powrót&lt;/button&gt;
+&lt;button class="btn btn-primary" @click="$router.push({ path: '/edu-user-list', query: { hello: 'Witam' } })"&gt;Powrót&lt;/button&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}

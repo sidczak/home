@@ -205,4 +205,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example22 - Zagnieżdżone ścieżki'
         ]);
     }
+
+    /**
+     * @Route("/example23", name="vue_advanced_example23")
+     */
+    public function example23Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example23.html.twig',[
+            'title' => 'Welcome Vue Advanced - example23 - Nawigacja z poziomu kodu'
+        ]);
+    }
 }
