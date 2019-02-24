@@ -5,10 +5,10 @@ import EduUserEdit from '../edu-components/EduUserEdit';
 
 export default [
 	{ path: "/", component: HelloWorld },
-	{ path: "/edu-user-list", component: EduUserList },
+	{ path: "/edu-user-list", component: EduUserList, name: "userList" },
 	//{ path: "/edu-user-details/:id", component: EduUserDetails },
 	//{ path: "/edu-user-details/:id/edit", component: EduUserDetails }
-	{ path: "/edu-user-details/:id", component: EduUserDetails, children: [
-		{ path: "edit", component: EduUserEdit }
+	{ path: "/edu-user-details/:id", component: EduUserDetails, name: "userDetails", children: [
+		{ path: "edit", component: EduUserEdit, name: "userEdit" }
 	]}
 ];

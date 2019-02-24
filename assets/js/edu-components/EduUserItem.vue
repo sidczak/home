@@ -29,7 +29,7 @@
             </template>
         </td>
         <td>
-            <router-link :to="'/edu-user-details/' + user.id" class="btn btn-primary">
+            <router-link :to="{ name: 'userDetails', params: { id: user.id } }" class="btn btn-primary">
                 <i class="fa fa-search"></i>
             </router-link>
         </td>
@@ -37,7 +37,7 @@
             <button class="btn btn-primary" @click="editMode = !editMode">
                 <i class="fa" :class="{'fa-pencil': !editMode, 'fa-check': editMode}"></i> Szybka
             </button>
-            <router-link :to="'/edu-user-details/' + user.id + '/edit'" class="btn btn-primary">
+            <router-link :to="{ name: 'userEdit', params: { id: user.id } }" class="btn btn-primary">
                 <i class="fa fa-pencil"></i>
             </router-link>
         </td>
