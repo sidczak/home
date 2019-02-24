@@ -6,8 +6,10 @@ import EduUserEdit from '../edu-components/User/EduUserEdit';
 import EduUserNavigation from '../edu-components/User/EduUserNavigation';
 
 export default [
+    //{ path: "/", redirect: "/edu-user-list" },
+    { path: "/", redirect: { name: "userList" } },
     // { path: "/", component: HelloWorld },
-    { path: "/", components: {
+    { path: "/home", components: {
         default: HelloWorld,
         header: EduHomeNavigation
     } },
@@ -15,7 +17,7 @@ export default [
     { path: "/edu-user-list", components: {
         default: EduUserList,
         header: EduUserNavigation
-    }, name: "userList" },
+    }, name: "userList", alias: "/clients" },
     //{ path: "/edu-user-details/:id", component: EduUserDetails },
     //{ path: "/edu-user-details/:id/edit", component: EduUserDetails }
     { path: "/edu-user-details/:id", component: EduUserDetails, name: "userDetails", children: [

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 26</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <edu-app></edu-app>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <pre>
+                    <code>
+// assets/js/router/routes.js
+import HelloWorld from '../components/HelloWorld';
+import EduHomeNavigation from '../edu-components/Home/EduHomeNavigation';
+import EduUserList from '../edu-components/User/EduUserList';
+import EduUserDetails from '../edu-components/User/EduUserDetails';
+import EduUserEdit from '../edu-components/User/EduUserEdit';
+import EduUserNavigation from '../edu-components/User/EduUserNavigation';
+
+export default [
+    //{ path: "/", redirect: "/edu-user-list" },
+    { path: "/", redirect: { name: "userList" } },
+    { path: "/home", components: {
+        default: HelloWorld,
+        header: EduHomeNavigation
+    } },
+    { path: "/edu-user-list", components: {
+        default: EduUserList,
+        header: EduUserNavigation
+    }, name: "userList", alias: "/clients" },
+    { path: "/edu-user-details/:id", component: EduUserDetails, name: "userDetails", children: [
+        { path: "edit", component: EduUserEdit, name: "userEdit" }
+    ]}
+];
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+Robimy przekierowanie na strone użytkowników:
+{ path: "/", redirect: { name: "userList" } },
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+Strona będzie dostępna pod adresami:<br/>
+http://home.test/en/vue/advanced/example26#/edu-user-list
+http://home.test/en/vue/advanced/example26#/clients
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
