@@ -42,7 +42,7 @@
 <script>
     import { mapState, mapGetters } from 'vuex';
     import EduUserItem from './EduUserItem';
-    import store from '../store/store';
+    import store from '../../store/store';
     
     export default {
         name: "EduUserList",

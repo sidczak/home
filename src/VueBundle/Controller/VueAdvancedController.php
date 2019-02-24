@@ -225,4 +225,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example24 - Nazwane ścieżki'
         ]);
     }
+
+    /**
+     * @Route("/example25", name="vue_advanced_example25")
+     */
+    public function example25Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example25.html.twig',[
+            'title' => 'Welcome Vue Advanced - example25 - Nazwane widoki'
+        ]);
+    }
 }

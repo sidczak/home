@@ -23,7 +23,7 @@ import EduHelloWorld from './edu-components/EduHelloWorld.vue';
 import EduHeadingGroup from './edu-components/EduHeadingGroup.vue';
 import EduUser from './edu-components/EduUser.vue';
 import EduProduct from './edu-components/EduProduct.vue';
-import EduUserList from './edu-components/EduUserList.vue';
+import EduUserList from './edu-components/User/EduUserList.vue';
 import EduApp from './edu-components/EduApp.vue';
 
 // Vue.config.ignoredElements = [
