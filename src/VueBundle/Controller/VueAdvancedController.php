@@ -255,4 +255,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example27 - Uniwersalne komponenty'
         ]);
     }
+
+    /**
+     * @Route("/example28", name="vue_advanced_example28")
+     */
+    public function example28Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example28.html.twig',[
+            'title' => 'Welcome Vue Advanced - example28 - Tryb History API'
+        ]);
+    }
 }

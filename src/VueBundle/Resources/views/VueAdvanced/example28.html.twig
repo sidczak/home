@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 28</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <edu-app></edu-app>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Wczytywanie routingu bez #.</h4>
+                <pre>
+                    <code>
+                }
+// assets/js/router/router.js
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+import routes from './routes';
+
+Vue.use(VueRouter);
+
+export default new VueRouter({ 
+    mode: "history",
+    routes 
+});
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+https://router.vuejs.org/guide/essentials/history-mode.html
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
