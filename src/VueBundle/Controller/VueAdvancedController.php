@@ -245,4 +245,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example26 - Przekierowania'
         ]);
     }
+
+    /**
+     * @Route("/example27", name="vue_advanced_example27")
+     */
+    public function example27Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example27.html.twig',[
+            'title' => 'Welcome Vue Advanced - example27 - Uniwersalne komponenty'
+        ]);
+    }
 }

@@ -20,7 +20,12 @@ export default [
     }, name: "userList", alias: "/clients" },
     //{ path: "/edu-user-details/:id", component: EduUserDetails },
     //{ path: "/edu-user-details/:id/edit", component: EduUserDetails }
-    { path: "/edu-user-details/:id", component: EduUserDetails, name: "userDetails", children: [
-        { path: "edit", component: EduUserEdit, name: "userEdit" }
-    ]}
+    { 
+        path: "/edu-user-details/:id", 
+        component: EduUserDetails, 
+        name: "userDetails",
+        props: true,
+        children: [
+            { path: "edit", component: EduUserEdit, name: "userEdit", props: true }
+        ]}
 ];

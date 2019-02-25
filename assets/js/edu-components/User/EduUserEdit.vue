@@ -41,9 +41,10 @@
 
     export default {
         name: "EduUserEdit",
+        props: ["id"],
         computed: {
             user() {
-                return this.$store.getters.user( Number(this.$route.params.id) )
+                return this.$store.getters.user( Number(this.id) )
             }
         },
         methods: {

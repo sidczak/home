@@ -5,7 +5,7 @@
                 <a class="nav-link" href="https://vuejs.org"><strong>Vue.js</strong></a>
             </li>
             <li class="nav-item">
-                <router-link to="/" class="nav-link" exact active-class="active">Home</router-link>
+                <router-link to="/home" class="nav-link" exact active-class="active">Home</router-link>
                 <!-- <a class="nav-link" href="#">Home</a> -->
             </li>
             <li class="nav-item">
