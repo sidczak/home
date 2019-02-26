@@ -285,4 +285,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example30 - Animacje'
         ]);
     }
+
+    /**
+     * @Route("/example31", name="vue_advanced_example31")
+     */
+    public function example31Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example31.html.twig',[
+            'title' => 'Welcome Vue Advanced - example31 - Dynamiczne wczytywanie modułów'
+        ]);
+    }
 }

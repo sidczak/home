@@ -1,3 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 31</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <edu-app></edu-app>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <pre>
+                    <code>
+// assets/js/router/routes.js
 import HelloWorld from '../components/HelloWorld';
 import EduHomeNavigation from '../edu-components/Home/EduHomeNavigation';
 import EduUserList from '../edu-components/User/EduUserList';
@@ -46,3 +68,12 @@ export default [
         name: "login"
     }
 ];
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
