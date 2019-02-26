@@ -57,6 +57,13 @@
                 })
             },
         }
+        // beforeRouteEnter(to, from, next) {
+        //     if(window.localStorage.getItem("token")) {
+        //         next();
+        //     } else {
+        //         next({ name: "login" });
+        //     }
+        // }
     };
 
 </script>

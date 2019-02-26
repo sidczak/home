@@ -265,4 +265,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example28 - Tryb History API'
         ]);
     }
+
+    /**
+     * @Route("/example29", name="vue_advanced_example29")
+     */
+    public function example29Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example29.html.twig',[
+            'title' => 'Welcome Vue Advanced - example29 - Tworzenie guardów'
+        ]);
+    }
 }
