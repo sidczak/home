@@ -8,7 +8,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <router-view></router-view>
+                    <transition name="slide" mode="out-in" appear>
+                        <router-view :key="$route.fullPath"></router-view>
+                    </transition>
                 </div>
             </div>
         </div>
@@ -22,3 +24,15 @@
         router
     };
 </script>
+<style lang="scss" scoped>
+    .slide-enter-active,
+    .slide-leave-active {
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide-enter {
+        transform: translateX(-100vw);
+    }
+    .slide-leave-to {
+        transform: translateX(100vw);
+    }
+</style>

@@ -275,4 +275,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example29 - Tworzenie guardów'
         ]);
     }
+
+    /**
+     * @Route("/example30", name="vue_advanced_example30")
+     */
+    public function example30Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example30.html.twig',[
+            'title' => 'Welcome Vue Advanced - example30 - Animacje'
+        ]);
+    }
 }
