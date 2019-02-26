@@ -7,7 +7,15 @@ Vue.use(VueRouter);
 
 //export default new VueRouter({ routes });
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({ 
+	routes,
+	scrollBehavior(to, from, savedPosition) {
+		console.log(savedPosition);
+		//return { selector: "#users" };
+		//return { selector: to.hash };
+		return { x: 0, y: 0 };
+	}
+});
 
 router.beforeEach((to, from, next) => {
 	

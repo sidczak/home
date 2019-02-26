@@ -295,4 +295,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example31 - Dynamiczne wczytywanie modułów'
         ]);
     }
+
+    /**
+     * @Route("/example32", name="vue_advanced_example32")
+     */
+    public function example32Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example32.html.twig',[
+            'title' => 'Welcome Vue Advanced - example32 - Ustawienia pozycji suwaka'
+        ]);
+    }
 }
