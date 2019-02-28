@@ -1,6 +1,10 @@
 import Vue from 'vue';
 //import VueRouter from 'vue-router';
 import vueCustomElement from 'vue-custom-element';
+import axios from 'axios';
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios);
 
 import '../css/home.scss';
 

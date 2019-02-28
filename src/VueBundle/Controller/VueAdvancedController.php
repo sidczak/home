@@ -305,4 +305,24 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example32 - Ustawienia pozycji suwaka'
         ]);
     }
+
+    /**
+     * @Route("/example33", name="vue_advanced_example33")
+     */
+    public function example33Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example33.html.twig',[
+            'title' => 'Welcome Vue Advanced - example33 - Pierwsze kroki z axios'
+        ]);
+    }
+
+    /**
+     * @Route("/example35", name="vue_advanced_example35")
+     */
+    public function example35Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example35.html.twig',[
+            'title' => 'Welcome Vue Advanced - example35 - Integracja axios z Vue'
+        ]);
+    }
 }
