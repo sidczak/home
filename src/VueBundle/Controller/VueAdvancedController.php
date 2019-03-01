@@ -325,4 +325,14 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example35 - Integracja axios z Vue'
         ]);
     }
+
+    /**
+     * @Route("/example36", name="vue_advanced_example36")
+     */
+    public function example36Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example36.html.twig',[
+            'title' => 'Welcome Vue Advanced - example36 - Założenia wstępne projektu pierwszego'
+        ]);
+    }
 }
