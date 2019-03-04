@@ -27,6 +27,7 @@ import EduHelloWorld from './edu-components/EduHelloWorld.vue';
 import EduHeadingGroup from './edu-components/EduHeadingGroup.vue';
 import EduUser from './edu-components/EduUser.vue';
 import EduProduct from './edu-components/EduProduct.vue';
+import EduPracticeProduct from './edu-components/Practice/EduProduct.vue';
 import EduUserList from './edu-components/User/EduUserList.vue';
 import EduApp from './edu-components/EduApp.vue';
 
@@ -45,5 +46,6 @@ Vue.customElement('edu-hello-world', EduHelloWorld);
 Vue.customElement('edu-heading-group', EduHeadingGroup);
 Vue.customElement('edu-user', EduUser);
 Vue.customElement('edu-product', EduProduct);
+Vue.customElement('edu-practice-product', EduPracticeProduct);
 Vue.customElement('edu-user-list', EduUserList);
 Vue.customElement('edu-app', EduApp);
