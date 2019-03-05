@@ -345,5 +345,13 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example46 - Pierwsze kroki z vuelidate'
         ]);
     }
-
+    /**
+     * @Route("/example47", name="vue_advanced_example47")
+     */
+    public function example47Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example47.html.twig',[
+            'title' => 'Welcome Vue Advanced - example47 - Definiowanie reguł walidacji'
+        ]);
+    }
 }
