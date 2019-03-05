@@ -335,4 +335,15 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example36 - Założenia wstępne projektu pierwszego'
         ]);
     }
+
+    /**
+     * @Route("/example46", name="vue_advanced_example46")
+     */
+    public function example46Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example46.html.twig',[
+            'title' => 'Welcome Vue Advanced - example46 - Pierwsze kroki z vuelidate'
+        ]);
+    }
+
 }

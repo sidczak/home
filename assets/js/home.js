@@ -30,6 +30,7 @@ import EduProduct from './edu-components/EduProduct.vue';
 import EduPracticeProduct from './edu-components/Practice/EduProduct.vue';
 import EduUserList from './edu-components/User/EduUserList.vue';
 import EduApp from './edu-components/EduApp.vue';
+import EduRegisterForm from './edu-components/EduRegisterForm.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -49,3 +50,4 @@ Vue.customElement('edu-product', EduProduct);
 Vue.customElement('edu-practice-product', EduPracticeProduct);
 Vue.customElement('edu-user-list', EduUserList);
 Vue.customElement('edu-app', EduApp);
+Vue.customElement('edu-register-form', EduRegisterForm);

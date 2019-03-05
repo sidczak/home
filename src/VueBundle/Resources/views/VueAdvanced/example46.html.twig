@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 46</h2>
+                    <pre>
+                        <code>
+➜  home git:(master) ✗ npm install vuelidate --save
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <edu-register-form></edu-register-form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <pre>
+                    <code>
+// assets/js/home.js
+...
+import EduRegisterForm from './edu-components/EduRegisterForm.vue';
+
+Vue.use(vueCustomElement);
+
+...
+Vue.customElement('edu-register-form', EduRegisterForm);
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// assets/js/edu-components/EduRegisterForm.vue
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;form action="#"&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Imię i nazwisko&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="text" class="form-control" placeholder="Imię i nazwisko"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Adres e-mail&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="email" class="form-control" placeholder="Adres e-mail"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Kraj&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;select class="form-control"&gt;
+                        &lt;option disabled value=""&gt;Wybierz kraj&lt;/option&gt;
+                        &lt;option value="poland"&gt;Polska&lt;/option&gt;
+                        &lt;option value="usa"&gt;Stany Zjednoczone&lt;/option&gt;
+                        &lt;option value="china"&gt;Chiny&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Hasło&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="password" class="form-control" placeholder="Hasło"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Powtórz hasło&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="password" class="form-control" placeholder="Powtórz hasło"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;div class="form-check"&gt;
+                        &lt;input class="form-check-input" type="checkbox"&gt;
+                        &lt;label class="form-check-label"&gt;Akceptuję &lt;a href="#"&gt;regulamin&lt;/a&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;div class="col"&gt;
+                    &lt;button class="btn btn-primary float-right"&gt;Wyślij&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    import { validationMixin } from "vuelidate";
+    export default {
+        name: "EduRegisterForm",
+        mixins: [validationMixin]
+    };
+&lt;/script&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
