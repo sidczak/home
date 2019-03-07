@@ -5,7 +5,7 @@
             <div class="form-group row">
                 <label class="col-3 col-form-label">Imię i nazwisko</label>
                 <div class="col">
-                    <input type="text" class="form-control" :class="{ 'is-invalid': $v.name.$dirty && $v.name.$invalid }" @input="$v.name.$touch()" placeholder="Imię i nazwisko" v-model="name">
+                    <input type="text" class="form-control" :class="{ 'is-invalid': $v.name.$error }" @input="$v.name.$touch()" placeholder="Imię i nazwisko" v-model="name">
                     <div class="invalid-feedback" v-if="$v.name.$dirty && !$v.name.required">Pole jest wymagane</div>
                     <div class="invalid-feedback" v-if="$v.name.$dirty && !$v.name.minLength">Wstaw minimum 2 znaki</div>
                 </div>
@@ -13,7 +13,7 @@
             <div class="form-group row">
                 <label class="col-3 col-form-label">Adres e-mail</label>
                 <div class="col">
-                    <input type="email" class="form-control" :class="{ 'is-invalid': $v.email.$dirty && $v.email.$invalid }" @input="$v.email.$touch()" placeholder="Adres e-mail" v-model="email">
+                    <input type="email" class="form-control" :class="{ 'is-invalid': $v.email.$error }" @input="$v.email.$touch()" placeholder="Adres e-mail" v-model="email">
                     <div class="invalid-feedback" v-if="$v.email.$dirty && !$v.email.required">Pole jest wymagane</div>
                     <div class="invalid-feedback" v-if="$v.email.$dirty && !$v.email.email">Adres email jest niepoprawny</div>
                 </div>
@@ -21,7 +21,7 @@
             <div class="form-group row">
                 <label class="col-3 col-form-label">Kraj</label>
                 <div class="col">
-                    <select class="form-control" :class="{ 'is-invalid': $v.country.$dirty && $v.country.$invalid }" @change="$v.country.$touch()" v-model="country" >
+                    <select class="form-control" :class="{ 'is-invalid': $v.country.$error }" @change="$v.country.$touch()" v-model="country" >
                         <option disabled value="">Wybierz kraj</option>
                         <option value="poland">Polska</option>
                         <option value="usa">Stany Zjednoczone</option>
@@ -47,7 +47,7 @@
                 <label class="col-3 col-form-label"></label>
                 <div class="col">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" :class="{ 'is-invalid': $v.terms.$dirty && $v.terms.$invalid }" @change="$v.terms.$touch()" v-model="terms">
+                        <input type="checkbox" class="form-check-input" :class="{ 'is-invalid': $v.terms.$error }" @change="$v.terms.$touch()" v-model="terms">
                         <label class="form-check-label">Akceptuję <a href="#">regulamin</a></label>
                     </div>
                 </div>
