@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {#{{ show_source_code(_self) }}#}
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <h2>Example 48</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <edu-register-form></edu-register-form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <pre>
+                    <code>
+// assets/js/edu-components/EduRegisterForm.vue
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;h3&gt;Register form&lt;/h3&gt;
+        &lt;form action="#"&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Imię i nazwisko&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="text" class="form-control" :class="{ 'is-invalid': $v.name.$dirty && $v.name.$invalid }" @input="$v.name.$touch()" placeholder="Imię i nazwisko" v-model="name"&gt;
+                    &lt;div class="invalid-feedback" v-if="$v.name.$dirty && !$v.name.required"&gt;Pole jest wymagane&lt;/div&gt;
+                    &lt;div class="invalid-feedback" v-if="$v.name.$dirty && !$v.name.minLength"&gt;Wstaw minimum 2 znaki&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Adres e-mail&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="email" class="form-control" :class="{ 'is-invalid': $v.email.$dirty && $v.email.$invalid }" @input="$v.email.$touch()" placeholder="Adres e-mail" v-model="email"&gt;
+                    &lt;div class="invalid-feedback" v-if="$v.email.$dirty && !$v.email.required"&gt;Pole jest wymagane&lt;/div&gt;
+                    &lt;div class="invalid-feedback" v-if="$v.email.$dirty && !$v.email.email"&gt;Adres email jest niepoprawny&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Kraj&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;select class="form-control" :class="{ 'is-invalid': $v.country.$dirty && $v.country.$invalid }" @change="$v.country.$touch()" v-model="country" &gt;
+                        &lt;option disabled value=""&gt;Wybierz kraj&lt;/option&gt;
+                        &lt;option value="poland"&gt;Polska&lt;/option&gt;
+                        &lt;option value="usa"&gt;Stany Zjednoczone&lt;/option&gt;
+                        &lt;option value="china"&gt;Chiny&lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;div class="invalid-feedback" v-if="$v.country.$dirty && !$v.country.required"&gt;Wybór kraju jest wymagany.&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Hasło&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="password" class="form-control" placeholder="Hasło"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;Powtórz hasło&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;input type="password" class="form-control" placeholder="Powtórz hasło"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;label class="col-3 col-form-label"&gt;&lt;/label&gt;
+                &lt;div class="col"&gt;
+                    &lt;div class="form-check"&gt;
+                        &lt;input type="checkbox" class="form-check-input" :class="{ 'is-invalid': $v.terms.$dirty && $v.terms.$invalid }" @change="$v.terms.$touch()" v-model="terms"&gt;
+                        &lt;label class="form-check-label"&gt;Akceptuję &lt;a href="#"&gt;regulamin&lt;/a&gt;&lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group row"&gt;
+                &lt;div class="col"&gt;
+                    &lt;button class="btn btn-primary float-right" :disabled="$v.$invalid"&gt;Wyślij&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+        &lt;pre&gt;
+            { { $v } }
+        &lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    import { validationMixin } from "vuelidate";
+    import { required, minLength, email } from "vuelidate/lib/validators";
+    export default {
+        name: "EduRegisterForm",
+        mixins: [validationMixin],
+        data() {
+            return {
+                name: "",
+                email: "",
+                country: "",
+                terms: false
+            };
+        },
+        validations: {
+            name: {
+                required,
+                minLength: minLength(2)
+            },
+            email: {
+                required,
+                email
+            },
+            country: {
+                required
+            },
+            terms: {
+                required
+            }
+        }
+    };
+&lt;/script&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}

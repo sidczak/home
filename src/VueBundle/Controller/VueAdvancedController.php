@@ -345,6 +345,7 @@ class VueAdvancedController extends Controller
             'title' => 'Welcome Vue Advanced - example46 - Pierwsze kroki z vuelidate'
         ]);
     }
+    
     /**
      * @Route("/example47", name="vue_advanced_example47")
      */
@@ -352,6 +353,16 @@ class VueAdvancedController extends Controller
     {
         return $this->render('VueBundle:VueAdvanced:example47.html.twig',[
             'title' => 'Welcome Vue Advanced - example47 - Definiowanie reguł walidacji'
+        ]);
+    }
+
+    /**
+     * @Route("/example48", name="vue_advanced_example48")
+     */
+    public function example48Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example48.html.twig',[
+            'title' => 'Welcome Vue Advanced - example48 - Definiowanie reguł walidacji'
         ]);
     }
 }
