@@ -33,13 +33,14 @@
             <div class="form-group row">
                 <label class="col-3 col-form-label">Hasło</label>
                 <div class="col">
-                    <input type="password" class="form-control" placeholder="Hasło">
+                    <input type="password" class="form-control" :class="{ 'is-invalid': $v.password.$error }" placeholder="Hasło" v-model="password" @input="$v.password.$touch()">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-3 col-form-label">Powtórz hasło</label>
                 <div class="col">
-                    <input type="password" class="form-control" placeholder="Powtórz hasło">
+                    <input type="password" class="form-control" :class="{ 'is-invalid': $v.repeatPassword.$error }" placeholder="Powtórz hasło" v-model="repeatPassword" @input="$v.repeatPassword.$touch()">
+                    <div class="invalid-feedback" v-if="$v.repeatPassword.$error">Hasła muszą być takie same.</div>
                 </div>
             </div>
             <div class="form-group row">
@@ -64,7 +65,7 @@
 </template>
 <script>
     import { validationMixin } from "vuelidate";
-    import { required, minLength, email } from "vuelidate/lib/validators";
+    import { required, minLength, email, sameAs } from "vuelidate/lib/validators";
     export default {
         name: "EduRegisterForm",
         mixins: [validationMixin],
@@ -73,7 +74,9 @@
                 name: "",
                 email: "",
                 country: "",
-                terms: false
+                terms: false,
+                password: "",
+                repeatPassword: ""
             };
         },
         validations: {
@@ -90,6 +93,12 @@
             },
             terms: {
                 required
+            },
+            password: {
+                required
+            },
+            repeatPassword: {
+                sameAsPassword: sameAs("password")
             }
         }
     };

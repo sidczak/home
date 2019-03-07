@@ -362,7 +362,16 @@ class VueAdvancedController extends Controller
     public function example48Action(Request $request)
     {
         return $this->render('VueBundle:VueAdvanced:example48.html.twig',[
-            'title' => 'Welcome Vue Advanced - example48 - Definiowanie reguł walidacji'
+            'title' => 'Welcome Vue Advanced - example48 - Wyświetlanie błędów'
+        ]);
+    }
+    /**
+     * @Route("/example49", name="vue_advanced_example49")
+     */
+    public function example49Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example49.html.twig',[
+            'title' => 'Welcome Vue Advanced - example49 - Sprawdzanie poprawności haseł'
         ]);
     }
 }
