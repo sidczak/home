@@ -70,7 +70,7 @@
         },
         // data() {
         //     return {
-        //         users: require("../data/users")
+        //         users: require("../../data/users")
         //         // users: [
         //         //     {id: 1, firstName: "Jan", lastName: "Kowalski", age: 32},
         //         //     {id: 2, firstName: "Anna", lastName: "Nowak", age: 27},

@@ -337,6 +337,16 @@ class VueAdvancedController extends Controller
     }
 
     /**
+     * @Route("/example37", name="vue_advanced_example37")
+     */
+    public function example37Action(Request $request)
+    {
+        return $this->render('VueBundle:VueAdvanced:example37.html.twig',[
+            'title' => 'Welcome Vue Advanced - example37 - Pobieranie danych do VueX'
+        ]);
+    }
+
+    /**
      * @Route("/example46", name="vue_advanced_example46")
      */
     public function example46Action(Request $request)

@@ -4,7 +4,7 @@
         <template v-if="true">
             <div class="product__info">
                 <img class="product__image img-fluid" src="../../../static/laptop.jpg" alt="">
-                <h1 class="product__name">Laptop 15&quot;</h1>
+                <h1 class="product__name">Laptop 15&quot; {{ product.name }}</h1>
                 <p class="product__desc">Ultra cienki, wydajny laptop z ekranem o wysokiej rozdzielczości.</p>
             </div>
 
@@ -64,7 +64,7 @@
         mixins: [loading],
         data() {
             return {
-                product: null
+                product: require("../../data/product")
             }
         },
         methods: {
