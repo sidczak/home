@@ -4,8 +4,8 @@
         <template v-if="true">
             <div class="product__info">
                 <img class="product__image img-fluid" src="../../../static/laptop.jpg" alt="">
-                <h1 class="product__name">Laptop 15&quot; {{ product.name }}</h1>
-                <p class="product__desc">Ultra cienki, wydajny laptop z ekranem o wysokiej rozdzielczości.</p>
+                <h1 class="product__name">{{ product.name }}</h1>
+                <p class="product__desc">{{ product.description }}</p>
             </div>
 
             <div class="features">
