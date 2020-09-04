@@ -25,7 +25,7 @@
   "homepage": "https://github.com/sidczak/home#readme",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.22.2",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-custom-element": "^3.2.6",
